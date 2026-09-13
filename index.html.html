@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="ta">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>பாலு பஜாரு • Paal Bazaar — Chennai &amp; Thiruvallur Fresh Milk Marketplace, Subscriptions &amp; Bulk Orders</title>
+  
+  <!-- Fonts, Icons & jsPDF from CDN -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+    }
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track { background: #faebe4; }
+    ::-webkit-scrollbar-thumb { background: #bec9c3; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #005440; }
+    .cart-drawer-open { overflow: hidden; }
+  </style>
+
+  <!-- Tailwind CSS CDN with Stitch Pasumbaal Heritage Color Tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#005440",
+            "primary-container": "#0f6e56",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#9aedcf",
+            "primary-fixed": "#a0f3d4",
+            "secondary": "#7d5700",
+            "secondary-container": "#feb71a",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#6b4b00",
+            "secondary-fixed": "#ffdeaa",
+            "tertiary": "#7e3200",
+            "tertiary-container": "#a44300",
+            "on-tertiary": "#ffffff",
+            "surface": "#fff8f6",
+            "surface-dim": "#e6d7d1",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#fff1eb",
+            "surface-container": "#faebe4",
+            "surface-container-high": "#f4e5df",
+            "surface-container-highest": "#efdfd9",
+            "on-surface": "#211a16",
+            "on-surface-variant": "#3f4944",
+            "outline": "#6f7a74",
+            "background": "#fff8f6"
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+          fontFamily: {
+            "display-lg": ["Noto Serif", "serif"],
+            "headline-lg": ["Noto Serif", "serif"],
+            "headline-md": ["Noto Serif", "serif"],
+            "headline-sm": ["Noto Serif", "serif"],
+            "body-lg": ["Noto Sans", "sans-serif"],
+            "body-md": ["Noto Sans", "sans-serif"],
+            "label-lg": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col">
+
+  <!-- ================= TOP ANNOUNCEMENT RIBBON ================= -->
+  <aside aria-label="Announcement" class="bg-primary text-on-primary py-1.5 px-4 md:px-8 border-b border-primary-container">
+    <div class="max-w-7xl mx-auto flex items-center justify-between text-xs tracking-wide">
+      <div class="flex items-center gap-2 truncate">
+        <span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-secondary-container animate-ping"></span>
+        <span class="font-semibold text-secondary-container">காலை 5:00 - 7:00 AM வாசல் விநியோகம்</span>
+        <span class="hidden sm:inline opacity-80">| சென்னை &amp; திருவள்ளூர் அனைத்து பகுதிகளும்</span>
+        <span class="hidden lg:inline text-secondary-fixed font-bold ml-2">
+          • அடுத்த முன்பதிவு முடிய இன்னும்: <span id="countdown-timer" class="font-mono bg-black/25 px-2 py-0.5 rounded text-white font-bold">02:45:18</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <button onclick="openProfileModal()" class="hover:underline text-[11px] text-secondary-container font-semibold flex items-center gap-1">
+          <span class="material-symbols-outlined text-xs">account_circle</span>
+          <span id="top-user-pill">கவிதா (600028)</span>
+        </button>
+        <span class="text-white/30 hidden sm:inline">|</span>
+        <a class="inline-flex items-center gap-1 text-secondary-fixed hover:text-white transition-colors" href="https://wa.me/918122802067?text=Vanakkam%20Paal%20Bazaar" target="_blank">
+          <span class="material-symbols-outlined text-[14px]">chat</span>
+          <span>WhatsApp: +91 81228 02067</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= STICKY MAIN HEADER ================= -->
+  <header class="sticky top-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-xl border-b border-surface-container shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="h-20 flex items-center justify-between gap-4">
+        
+        <!-- Brand Wordmark & Locality Pin -->
+        <div class="flex items-center gap-4 shrink-0">
+          <a class="flex items-center gap-2.5 group" href="#" onclick="showTab('storefront')">
+            <div class="w-11 h-11 rounded-xl bg-primary flex items-center justify-center text-secondary-container shadow-md group-hover:scale-105 transition-transform">
+              <span class="material-symbols-outlined text-[26px]">water_drop</span>
+            </div>
+            <div class="flex flex-col text-left">
+              <span class="font-headline-sm text-[22px] font-bold text-primary tracking-tight leading-none">பாலு பஜாரு</span>
+              <span class="font-label-sm text-[10px] uppercase tracking-widest text-secondary font-bold mt-0.5">CHENNAI &amp; THIRUVALLUR</span>
+            </div>
+          </a>
+
+          <!-- Chennai & Thiruvallur Location Switcher -->
+          <div class="relative hidden lg:block">
+            <button onclick="toggleLocalityMenu()" type="button" class="flex items-center gap-1.5 bg-surface-container-low px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors border border-surface-container">
+              <span class="material-symbols-outlined text-[18px] text-primary">location_on</span>
+              <div class="flex flex-col text-left">
+                <span class="text-[11px] leading-tight font-bold text-on-surface" id="current-locality-display">சென்னை / Mandaveli</span>
+                <span class="text-[10px] leading-tight text-on-surface-variant" id="current-pincode-display">600028 - Mandaveli</span>
+              </div>
+              <span class="material-symbols-outlined text-[16px] text-outline ml-1">expand_more</span>
+            </button>
+            <div id="locality-dropdown" class="hidden absolute left-0 mt-2 w-72 bg-surface-container-lowest rounded-xl shadow-2xl p-2 z-50 border border-surface-container max-h-80 overflow-y-auto">
+              <div class="px-2 py-1 text-[11px] font-bold text-primary uppercase tracking-wider">சென்னை மண்டலங்கள் (Chennai)</div>
+              <button onclick="setLocality('Mandaveli', '600028')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container-low text-xs flex justify-between"><span>மாந்தவெளி (Mandaveli)</span> <span class="font-mono text-primary">600028</span></button>
+              <button onclick="setLocality('Mylapore', '600004')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container-low text-xs flex justify-between"><span>மயிலாப்பூர் (Mylapore)</span> <span class="font-mono text-primary">600004</span></button>
+              <button onclick="setLocality('Anna Nagar', '600040')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container-low text-xs flex justify-between"><span>அண்ணா நகர் (Anna Nagar)</span> <span class="font-mono text-primary">600040</span></button>
+              <button onclick="setLocality('Adyar', '600020')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container-low text-xs flex justify-between"><span>அடையாறு (Adyar)</span> <span class="font-mono text-primary">600020</span></button>
+              <button onclick="setLocality('T. Nagar', '600017')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container-low text-xs flex justify-between"><span>தி. நகர் (T. Nagar)</span> <span class="font-mono text-primary">600017</span></button>
+              <button onclick="setLocality('Velachery', '600042')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container-low text-xs flex justify-between"><span>வேளச்சேரி (Velachery)</span> <span class="font-mono text-primary">600042</span></button>
+              <button onclick="setLocality('Tambaram', '600045')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container-low text-xs flex justify-between"><span>தாம்பரம் (Tambaram)</span> <span class="font-mono text-primary">600045</span></button>
+              
+              <div class="px-2 py-1.5 mt-2 text-[11px] font-bold text-secondary uppercase tracking-wider border-t border-surface-container">திருவள்ளூர் மாவட்டம் (Thiruvallur)</div>
+              <button onclick="setLocality('Thiruvallur Town', '602001')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container-low text-xs flex justify-between"><span>திருவள்ளூர் நகரம் (Collectorate)</span> <span class="font-mono text-secondary font-bold">602001</span></button>
+              <button onclick="setLocality('Poonamallee', '600056')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container-low text-xs flex justify-between"><span>பூந்தமல்லி (Poonamallee)</span> <span class="font-mono text-secondary font-bold">600056</span></button>
+              <button onclick="setLocality('Avadi', '600054')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container-low text-xs flex justify-between"><span>ஆவடி (Avadi)</span> <span class="font-mono text-secondary font-bold">600054</span></button>
+              <button onclick="setLocality('Ambattur', '600053')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container-low text-xs flex justify-between"><span>அம்பத்தூர் (Ambattur)</span> <span class="font-mono text-secondary font-bold">600053</span></button>
+              <button onclick="setLocality('Thirumazhisai', '602105')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container-low text-xs flex justify-between"><span>திருமழிசை (Thirumazhisai)</span> <span class="font-mono text-secondary font-bold">602105</span></button>
+              <button onclick="setLocality('Thirunindravur', '600062')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container-low text-xs flex justify-between"><span>திருநின்றவூர் (Thirunindravur)</span> <span class="font-mono text-secondary font-bold">600062</span></button>
+              <button onclick="setLocality('Ponneri', '601201')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container-low text-xs flex justify-between"><span>பொன்னேரி (Ponneri)</span> <span class="font-mono text-secondary font-bold">601201</span></button>
+              <button onclick="setLocality('Redhills', '600067')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container-low text-xs flex justify-between"><span>செங்குன்றம் (Redhills)</span> <span class="font-mono text-secondary font-bold">600067</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Instant Search Bar -->
+        <div class="flex-1 max-w-md hidden md:block">
+          <div class="relative flex items-center w-full">
+            <span class="material-symbols-outlined absolute left-3.5 text-primary text-[20px] pointer-events-none">search</span>
+            <input id="search-input" onkeyup="handleLiveSearch(this.value)" class="w-full bg-surface-container-lowest text-on-surface text-sm pl-11 pr-20 py-2.5 rounded-xl border border-surface-container shadow-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="பால், தயிர், நெய், பனீர், சீஸ் தேடுக..." type="text">
+            <span class="absolute right-2.5 px-2 py-0.5 bg-surface-container text-on-surface-variant rounded text-[10px] font-mono font-semibold">Ctrl+K</span>
+          </div>
+        </div>
+
+        <!-- Actions: User Profile, WhatsApp, Host Admin & Cart Drawer -->
+        <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+          
+          <!-- Language Toggle -->
+          <div class="relative">
+            <button onclick="toggleLangMenu()" id="lang-btn" type="button" class="flex items-center gap-1 bg-surface-container hover:bg-surface-container-high px-2 py-1.5 rounded-lg text-xs font-bold text-on-surface border border-surface-container">
+              <span class="material-symbols-outlined text-[16px] text-primary">translate</span>
+              <span id="active-lang-text">தமிழ்</span>
+            </button>
+            <div id="lang-menu" class="hidden absolute right-0 mt-2 w-44 bg-surface-container-lowest rounded-xl shadow-xl p-1.5 z-50 border border-surface-container">
+              <button onclick="setLanguage('ta')" class="w-full text-left px-3 py-1.5 rounded text-xs font-bold text-primary">தமிழ் (Tamil)</button>
+              <button onclick="setLanguage('en')" class="w-full text-left px-3 py-1.5 rounded text-xs font-medium text-on-surface">English</button>
+            </div>
+          </div>
+
+          <!-- USER PROFILE BUTTON -->
+          <button onclick="openProfileModal()" class="flex items-center gap-2 p-1.5 pr-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container border border-surface-container transition-all" title="User Profile Details">
+            <div id="header-user-avatar" class="w-8 h-8 rounded-full bg-secondary-container/40 text-secondary flex items-center justify-center font-bold text-xs ring-2 ring-secondary-container">
+              KM
+            </div>
+            <div class="flex flex-col text-left hidden sm:flex">
+              <span class="text-[11px] font-bold text-on-surface leading-tight" id="header-user-name">கவிதா மகாலிங்கம்</span>
+              <span class="text-[9px] text-primary font-semibold leading-tight" id="header-user-sub">8122802067 • 600028</span>
+            </div>
+          </button>
+
+          <!-- WhatsApp Contact Button (8122802067) -->
+          <a class="hidden lg:inline-flex items-center gap-1.5 bg-[#25D366] text-white px-3 py-2 rounded-xl text-xs font-bold shadow-sm hover:bg-[#20ba5a] transition-all" href="https://wa.me/918122802067?text=Vanakkam%20Paal%20Bazaar!" target="_blank">
+            <span class="material-symbols-outlined text-[18px]">chat</span>
+            <span>வாட்ஸ்அப்</span>
+          </a>
+
+          <!-- Slide-over Cart Button -->
+          <button onclick="openCartDrawer()" class="inline-flex items-center gap-2 bg-primary text-on-primary px-3.5 py-2 rounded-xl hover:bg-primary-container transition-all shadow-md active:scale-95" type="button">
+            <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+            <div class="flex flex-col text-left">
+              <span class="text-xs font-bold leading-none" id="header-cart-summary">₹0 • 0 Items</span>
+              <span class="text-[9px] font-medium text-primary-fixed leading-tight">COD Available</span>
+            </div>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Search Bar -->
+      <div class="w-full block md:hidden pb-3">
+        <div class="relative flex items-center w-full">
+          <span class="material-symbols-outlined absolute left-3 text-primary text-[18px] pointer-events-none">search</span>
+          <input onkeyup="handleLiveSearch(this.value)" class="w-full bg-surface-container-lowest text-on-surface text-xs pl-9 pr-4 py-2 rounded-lg border border-surface-container shadow-sm" placeholder="பால், தயிர், நெய், பனீர், சீஸ் தேடுக..." type="text">
+        </div>
+      </div>
+    </div>
+
+    <!-- Secondary Sticky Navigation Tabs -->
+    <nav class="bg-surface-container-low border-t border-surface-container px-4 md:px-8">
+      <div class="max-w-7xl mx-auto flex items-center gap-2 overflow-x-auto py-2 no-scrollbar scroll-smooth text-xs font-semibold">
+        <button onclick="showTab('storefront')" id="nav-btn-storefront" class="nav-tab active-nav-tab px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-bold shadow-sm whitespace-nowrap flex items-center gap-1.5 transition-all">
+          <span class="material-symbols-outlined text-[16px]">storefront</span>
+          <span>பால் &amp; டெய்ரி சந்தை (Store)</span>
+        </button>
+        <button onclick="showTab('schedule-view')" id="nav-btn-schedule" class="nav-tab px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container whitespace-nowrap flex items-center gap-1.5 transition-all">
+          <span class="material-symbols-outlined text-[16px]">receipt_long</span>
+          <span>7-நாள் அட்டவணை &amp; பில் (Schedule &amp; Bill)</span>
+        </button>
+        <button onclick="showTab('bulk-view')" id="nav-btn-bulk" class="nav-tab px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container whitespace-nowrap flex items-center gap-1.5 transition-all">
+          <span class="material-symbols-outlined text-[16px] text-tertiary">celebration</span>
+          <span>கல்யாண &amp; விசேஷ பல்க் ஆர்டர் (Function Bulk) 🏛️</span>
+        </button>
+        <button onclick="showTab('offers-view')" id="nav-btn-offers" class="nav-tab px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container whitespace-nowrap flex items-center gap-1.5 transition-all">
+          <span class="material-symbols-outlined text-[16px] text-secondary">local_fire_department</span>
+          <span>பண்டிகை ஆஃபர்கள் (Festival Deals) 🪔</span>
+        </button>
+        <button onclick="showTab('tracking-view')" id="nav-btn-tracking" class="nav-tab px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container whitespace-nowrap flex items-center gap-1.5 transition-all">
+          <span class="material-symbols-outlined text-[16px] text-primary">map</span>
+          <span>Google Map டிராக்கிங் (Live Map) 📍</span>
+        </button>
+        <button onclick="showTab('checkout-view')" id="nav-btn-checkout" class="nav-tab px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container whitespace-nowrap flex items-center gap-1.5 transition-all">
+          <span class="material-symbols-outlined text-[16px] text-secondary">flash_on</span>
+          <span>அதிவேக COD &amp; UPI (Checkout)</span>
+        </button>
+        <button onclick="openHostAdminModal()" class="ml-auto px-3 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-bold text-[11px] flex items-center gap-1 whitespace-nowrap border border-primary/20">
+          <span class="material-symbols-outlined text-[14px]">admin_panel_settings</span>
+          <span>ஹோஸ்ட் அட்மின் தரவு (Host Data)</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= LIVE ONLINE GROCERY PRICE MONITORING STRIP (REQ 5) ================= -->
+  <section class="bg-surface-container-high px-4 md:px-8 py-2.5 border-b border-surface-container text-xs">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded bg-emerald-800 text-white font-bold text-[10px] uppercase tracking-wider">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse mr-1"></span>
+          ஆன்லைன் விலை ஒப்பீடு (LIVE BENCHMARK)
+        </span>
+        <span class="font-semibold text-on-surface">சென்னை &amp; திருவள்ளூர் சூப்பர் மார்க்கெட் விலைகளை விட 5-15% குறைந்த விலை உத்தரவாதம்!</span>
+      </div>
+      <div class="flex items-center gap-3 font-mono text-[11px] text-on-surface-variant">
+        <span>ஆவின்: <b class="text-primary">₹42</b></span>
+        <span>•</span>
+        <span>ஆரோக்யா: <b class="text-primary">₹48</b></span>
+        <span>•</span>
+        <span>பனீர் 200g: <b class="text-primary">₹95</b></span>
+        <span>•</span>
+        <span>சீஸ் 200g: <b class="text-primary">₹120</b></span>
+        <span>•</span>
+        <span class="text-secondary font-bold">சரிபார்க்கப்பட்டது: இன்று காலை 6:00 AM</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MAIN APP VIEW ROUTER CONTAINER ================= -->
+  <main class="flex-1 w-full max-w-7xl mx-auto px-4 md:px-8 py-6 space-y-12">
+
+    <!-- ================= VIEW 1: STOREFRONT & PRODUCTS ================= -->
+    <div id="view-storefront" class="space-y-10">
+
+      <!-- HERO SECTION -->
+      <section class="relative overflow-hidden bg-surface-container-lowest rounded-3xl p-6 md:p-10 border border-surface-container shadow-sm">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
+              <span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+              <span>சென்னை &amp; திருவள்ளூர் பால் சந்தை • Direct Cold-Chain Doorstep Delivery</span>
+            </div>
+
+            <h1 class="font-headline-lg text-3xl sm:text-4xl lg:text-5xl text-primary font-bold tracking-tight leading-[1.15]">
+              உங்கள் பாலு,<br><span class="text-secondary">உங்கள் தேர்வு.</span>
+            </h1>
+
+            <p class="text-sm sm:text-base text-on-surface-variant max-w-xl leading-relaxed">
+              ஸ்ரீனிவாசா, ஆரோக்யா, ஆவின், அமுல், பண்ணை A2 பசும்பால், மண்பானைத் தயிர், மலாய் பனீர், நெய் மற்றும் சீஸ் — அனைத்தையும் 500ml / 1L / 200g / 500g அளவுகளில் நேரடி மளிகை சந்தை விலையில் பெறுங்கள்.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <button onclick="scrollToSection('products-catalog')" class="px-6 py-3 rounded-xl bg-primary text-on-primary font-bold text-xs shadow hover:bg-primary-container transition-all flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+                <span>இன்றைய பால் ஆர்டர் செய்</span>
+              </button>
+              <button onclick="showTab('bulk-view')" class="px-5 py-3 rounded-xl bg-surface-container text-primary font-bold text-xs border border-surface-container hover:bg-surface-container-high transition-all flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">celebration</span>
+                <span>கல்யாண / விசேஷ பல்க் ஆர்டர்</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 relative">
+            <div class="bg-surface-container-low p-3.5 rounded-3xl border border-surface-container shadow-lg overflow-hidden">
+              <img class="w-full h-72 object-cover rounded-2xl" alt="Fresh morning milk delivery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUcCjlmfdmVqcQjdJGanj51XyaY8Xbbq21SLBit96ulVHl5cK1BC9FDAP3ESkxEyOzg4r3N89r9o3kaBNm5whfR_WG0HqvfveBRaIttGUlAaT_Ibdr5NF2bJwOt05lnQWIiWwuwSDChMRLEaHgmkn3WGlhZ6Nd0tGbf8DkHVXXS0AHvXaOQ7ujgZ0kdKLFAO3vNmGEyO3ZuvyVF3dOPKIRf5nv3hAKsYM7DSFPDZnclyUkVxGtdCIXJw">
+              <div class="mt-2.5 p-2 bg-primary text-white rounded-xl flex items-center justify-between text-xs">
+                <span>விடியற்காலை 3:30 AM பண்ணைக் கறவை</span>
+                <span class="font-bold text-secondary-fixed">காலை 5:30 வாசல் டெலிவரி</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ALL CHENNAI & THIRUVALLUR PINCODE CHECKER WIDGET (REQ 7) -->
+      <section id="pincode-section" class="bg-surface-container-lowest rounded-2xl p-5 border border-surface-container shadow-sm space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="material-symbols-outlined text-primary text-2xl">pin_drop</span>
+            <div>
+              <h2 class="font-bold text-sm text-on-surface">சென்னை &amp; திருவள்ளூர் பின்கோடு சரிபார்க்கவும் (Pincode Checker)</h2>
+              <p class="text-xs text-on-surface-variant">அனைத்து 600xxx மற்றும் 602xxx/601xxx பின்கோடுகளிலும் அதிகாலை விநியோகம் உண்டு</p>
+            </div>
+          </div>
+          <span class="text-xs text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-full font-bold">100% சேவை உறுதி</span>
+        </div>
+
+        <div class="flex gap-2">
+          <input id="pincode-input" maxlength="6" class="flex-1 bg-surface-container-low text-xs pl-3 pr-2 py-2.5 rounded-xl border border-surface-container font-mono" placeholder="உங்கள் பின்கோடு (e.g. 600028, 600040, 602001, 600056, 602105)" value="600028">
+          <button onclick="checkPincode()" class="px-5 py-2.5 bg-primary text-on-primary text-xs font-bold rounded-xl hover:bg-primary-container">சரிபார்</button>
+        </div>
+        <div id="pincode-result" class="p-2.5 rounded-xl bg-primary-fixed/40 text-xs font-bold text-on-primary-fixed flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+          <span>மகிழ்ச்சியான செய்தி! 600028 (Mandaveli / Mylapore) பகுதியில் காலை 5:30 AM விநியோகம் நடப்பில் உள்ளது.</span>
+        </div>
+      </section>
+
+      <!-- PRODUCT CATALOG WITH DIFFERENT SIZES (MILK, CURD, GHEE, PANEER, CHEESE) -->
+      <section id="products-catalog" class="space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-surface-container pb-4">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-secondary font-bold">நேரலை சில்லறை விலை &amp; அளவுகள் • PRODUCTS &amp; SIZES</span>
+            <h2 class="font-headline-md text-2xl font-bold text-primary">பால், தயிர், நெய், பனீர் &amp; சீஸ் தயாரிப்புகள்</h2>
+          </div>
+          
+          <!-- Category Filter Pills -->
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+            <button onclick="filterProducts('all')" class="cat-pill active-cat px-3 py-1.5 rounded-lg text-xs font-bold bg-primary text-on-primary">அனைத்தும்</button>
+            <button onclick="filterProducts('milk')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-surface-container text-on-surface-variant">பால் வகைகள்</button>
+            <button onclick="filterProducts('curd')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-surface-container text-on-surface-variant">தயிர்</button>
+            <button onclick="filterProducts('ghee')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-surface-container text-on-surface-variant">நெய்</button>
+            <button onclick="filterProducts('paneer-cheese')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-surface-container text-on-surface-variant">பனீர் &amp; சீஸ்</button>
+          </div>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="products-grid">
+          
+          <!-- Product 1: Srinivasa Toned Milk -->
+          <article class="product-card bg-surface-container-lowest rounded-2xl p-4 border border-surface-container hover:shadow-md transition-all flex flex-col justify-between" data-category="milk" data-brand="srinivasa" data-title="srinivasa fresh toned milk" id="card-srinivasa">
+            <div class="space-y-2">
+              <div class="h-36 rounded-xl bg-amber-50 flex flex-col items-center justify-center p-2 relative">
+                <span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-secondary-container text-on-secondary-fixed text-[10px] font-bold">PREMIUM FRESH</span>
+                <span class="text-xs font-bold text-amber-900">SRINIVASA MILK</span>
+                <span class="text-[10px] text-amber-700">Fresh Toned 3.0% Fat</span>
+              </div>
+              <h3 class="font-bold text-sm text-on-surface">ஸ்ரீனிவாசா டோன்ட் பால்</h3>
+              <p class="text-xs text-on-surface-variant">கறந்த 18 மணி நேரத்திற்குள் விநியோகம். பில்டர் காபிக்கு உகந்தது.</p>
+              
+              <!-- Size Selector -->
+              <div class="pt-2">
+                <span class="text-[10px] text-outline font-bold block mb-1">அளவு தேர்வு (Size):</span>
+                <div class="flex gap-2">
+                  <button type="button" onclick="setProductVariant('srinivasa', '500ml', 23, 24)" class="variant-btn-srinivasa px-2 py-1 rounded text-xs font-bold border border-surface-container bg-surface-container text-on-surface-variant">500 ml (₹23)</button>
+                  <button type="button" onclick="setProductVariant('srinivasa', '1L', 46, 48)" class="variant-btn-srinivasa active-variant px-2 py-1 rounded text-xs font-bold border border-primary bg-primary text-on-primary">1 Litre (₹46)</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-surface-container mt-3 flex items-center justify-between">
+              <div>
+                <span id="price-srinivasa" class="text-lg font-bold font-mono text-primary">₹46</span>
+                <span id="mrp-srinivasa" class="text-xs text-outline line-through font-mono ml-1">₹48</span>
+              </div>
+              <button onclick="addCurrentVariantToCart('srinivasa')" class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-xs font-bold">+ சேர்</button>
+            </div>
+          </article>
+
+          <!-- Product 2: Arokya Everyday Toned Milk -->
+          <article class="product-card bg-surface-container-lowest rounded-2xl p-4 border border-surface-container hover:shadow-md transition-all flex flex-col justify-between" data-category="milk" data-brand="arokya" data-title="arokya everyday toned milk" id="card-arokya">
+            <div class="space-y-2">
+              <div class="h-36 rounded-xl bg-emerald-50 flex flex-col items-center justify-center p-2 relative">
+                <span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-emerald-700 text-white text-[10px] font-bold">BEST VALUE</span>
+                <span class="text-xs font-bold text-emerald-900">AROKYA TONED</span>
+                <span class="text-[10px] text-emerald-700">Daily Household Value</span>
+              </div>
+              <h3 class="font-bold text-sm text-on-surface">ஆரோக்யா டோன்ட் பால்</h3>
+              <p class="text-xs text-on-surface-variant">சென்னையின் மிக பிரபலமான தினசரி குடும்ப சேமிப்பு பால்.</p>
+              
+              <div class="pt-2">
+                <span class="text-[10px] text-outline font-bold block mb-1">அளவு தேர்வு (Size):</span>
+                <div class="flex gap-2">
+                  <button type="button" onclick="setProductVariant('arokya', '500ml', 24, 25)" class="variant-btn-arokya px-2 py-1 rounded text-xs font-bold border border-surface-container bg-surface-container text-on-surface-variant">500 ml (₹24)</button>
+                  <button type="button" onclick="setProductVariant('arokya', '1L', 48, 50)" class="variant-btn-arokya active-variant px-2 py-1 rounded text-xs font-bold border border-primary bg-primary text-on-primary">1 Litre (₹48)</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-surface-container mt-3 flex items-center justify-between">
+              <div>
+                <span id="price-arokya" class="text-lg font-bold font-mono text-primary">₹48</span>
+                <span id="mrp-arokya" class="text-xs text-outline line-through font-mono ml-1">₹50</span>
+              </div>
+              <button onclick="addCurrentVariantToCart('arokya')" class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-xs font-bold">+ சேர்</button>
+            </div>
+          </article>
+
+          <!-- Product 3: Aavin Green Magic -->
+          <article class="product-card bg-surface-container-lowest rounded-2xl p-4 border border-surface-container hover:shadow-md transition-all flex flex-col justify-between" data-category="milk" data-brand="aavin" data-title="aavin green magic milk" id="card-aavin">
+            <div class="space-y-2">
+              <div class="h-36 rounded-xl bg-blue-50 flex flex-col items-center justify-center p-2 relative">
+                <span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-blue-600 text-white text-[10px] font-bold">GOVT CO-OP</span>
+                <span class="text-xs font-bold text-blue-900">AAVIN GREEN</span>
+                <span class="text-[10px] text-blue-700">Direct Federation Rate</span>
+              </div>
+              <h3 class="font-bold text-sm text-on-surface">ஆவின் கிரீன் மேஜிக் பால்</h3>
+              <p class="text-xs text-on-surface-variant">தமிழ்நாடு பால் உற்பத்தியாளர் கூட்டமைப்பின் தரமான பால்.</p>
+              
+              <div class="pt-2">
+                <span class="text-[10px] text-outline font-bold block mb-1">அளவு தேர்வு (Size):</span>
+                <div class="flex gap-2">
+                  <button type="button" onclick="setProductVariant('aavin', '500ml', 21, 22)" class="variant-btn-aavin px-2 py-1 rounded text-xs font-bold border border-surface-container bg-surface-container text-on-surface-variant">500 ml (₹21)</button>
+                  <button type="button" onclick="setProductVariant('aavin', '1L', 42, 44)" class="variant-btn-aavin active-variant px-2 py-1 rounded text-xs font-bold border border-primary bg-primary text-on-primary">1 Litre (₹42)</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-surface-container mt-3 flex items-center justify-between">
+              <div>
+                <span id="price-aavin" class="text-lg font-bold font-mono text-primary">₹42</span>
+                <span id="mrp-aavin" class="text-xs text-outline line-through font-mono ml-1">₹44</span>
+              </div>
+              <button onclick="addCurrentVariantToCart('aavin')" class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-xs font-bold">+ சேர்</button>
+            </div>
+          </article>
+
+          <!-- Product 4: Pasumbaal Pure A2 Cow Milk -->
+          <article class="product-card bg-surface-container-lowest rounded-2xl p-4 border-2 border-secondary-container hover:shadow-md transition-all flex flex-col justify-between" data-category="milk" data-brand="pasumbaal" data-title="pasumbaal pure a2 cow milk glass" id="card-pasumbaal">
+            <div class="space-y-2">
+              <div class="h-36 rounded-xl bg-amber-50 flex flex-col items-center justify-center p-2 relative">
+                <span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-secondary text-white text-[10px] font-bold">100% A2 GLASS</span>
+                <span class="text-xs font-bold text-amber-900">A2 KANGAYAM COW</span>
+                <span class="text-[10px] text-secondary font-bold">Natural 4.5% Fat Layer</span>
+              </div>
+              <h3 class="font-bold text-sm text-on-surface">தூய A2 காங்கேயம் பசும்பால்</h3>
+              <p class="text-xs text-on-surface-variant">கலப்படமற்ற நாட்டுப்பசு கறவைப்பால், கண்ணாடி பாட்டிலில்.</p>
+              
+              <div class="pt-2">
+                <span class="text-[10px] text-outline font-bold block mb-1">அளவு தேர்வு (Size):</span>
+                <div class="flex gap-2">
+                  <button type="button" onclick="setProductVariant('pasumbaal', '500ml', 45, 50)" class="variant-btn-pasumbaal px-2 py-1 rounded text-xs font-bold border border-surface-container bg-surface-container text-on-surface-variant">500 ml (₹45)</button>
+                  <button type="button" onclick="setProductVariant('pasumbaal', '1L', 85, 95)" class="variant-btn-pasumbaal active-variant px-2 py-1 rounded text-xs font-bold border border-primary bg-primary text-on-primary">1 Litre (₹85)</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-surface-container mt-3 flex items-center justify-between">
+              <div>
+                <span id="price-pasumbaal" class="text-lg font-bold font-mono text-primary">₹85</span>
+                <span id="mrp-pasumbaal" class="text-xs text-outline line-through font-mono ml-1">₹95</span>
+              </div>
+              <button onclick="addCurrentVariantToCart('pasumbaal')" class="px-3.5 py-1.5 rounded-lg bg-secondary text-white hover:bg-secondary-container hover:text-black text-xs font-bold">+ சேர்</button>
+            </div>
+          </article>
+
+          <!-- Product 5: Earthen Pot Desi Curd -->
+          <article class="product-card bg-surface-container-lowest rounded-2xl p-4 border border-surface-container hover:shadow-md transition-all flex flex-col justify-between" data-category="curd" data-brand="pasumbaal" data-title="clay pot set curd" id="card-curd">
+            <div class="space-y-2">
+              <div class="h-36 rounded-xl bg-emerald-50 flex flex-col items-center justify-center p-2 relative">
+                <span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-primary text-white text-[10px] font-bold">CLAY POT SET</span>
+                <span class="material-symbols-outlined text-3xl text-primary">egg</span>
+                <span class="text-xs font-bold text-on-surface">கெட்டி மண் பானைத் தயிர்</span>
+              </div>
+              <h3 class="font-bold text-sm text-on-surface">பாரம்பரிய மண்பானைத் தயிர்</h3>
+              <p class="text-xs text-on-surface-variant">ரசாயனம் மற்றும் ஜெலட்டின் இல்லாத இயற்கை முறையில் உறை ஊற்றியது.</p>
+              
+              <div class="pt-2">
+                <span class="text-[10px] text-outline font-bold block mb-1">அளவு தேர்வு (Size):</span>
+                <div class="flex gap-2">
+                  <button type="button" onclick="setProductVariant('curd', '250g', 28, 30)" class="variant-btn-curd px-2 py-1 rounded text-xs font-bold border border-surface-container bg-surface-container text-on-surface-variant">250 g (₹28)</button>
+                  <button type="button" onclick="setProductVariant('curd', '500g', 50, 55)" class="variant-btn-curd active-variant px-2 py-1 rounded text-xs font-bold border border-primary bg-primary text-on-primary">500 g (₹50)</button>
+                  <button type="button" onclick="setProductVariant('curd', '1kg', 95, 105)" class="variant-btn-curd px-2 py-1 rounded text-xs font-bold border border-surface-container bg-surface-container text-on-surface-variant">1 kg (₹95)</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-surface-container mt-3 flex items-center justify-between">
+              <div>
+                <span id="price-curd" class="text-lg font-bold font-mono text-primary">₹50</span>
+                <span id="mrp-curd" class="text-xs text-outline line-through font-mono ml-1">₹55</span>
+              </div>
+              <button onclick="addCurrentVariantToCart('curd')" class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-xs font-bold">+ சேர்</button>
+            </div>
+          </article>
+
+          <!-- Product 6: Pure Bilona Cow Ghee -->
+          <article class="product-card bg-surface-container-lowest rounded-2xl p-4 border border-surface-container hover:shadow-md transition-all flex flex-col justify-between" data-category="ghee" data-brand="pasumbaal" data-title="pure bilona cow ghee" id="card-ghee">
+            <div class="space-y-2">
+              <div class="h-36 rounded-xl bg-amber-50 flex flex-col items-center justify-center p-2 relative">
+                <span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-amber-700 text-white text-[10px] font-bold">BILONA METHOD</span>
+                <span class="material-symbols-outlined text-3xl text-amber-700">soup_kitchen</span>
+                <span class="text-xs font-bold text-amber-900">மணமணக்கும் நாட்டு நெய்</span>
+              </div>
+              <h3 class="font-bold text-sm text-on-surface">பாரம்பரிய பிலோனா பசு நெய்</h3>
+              <p class="text-xs text-on-surface-variant">தயிர் கடைந்து வெண்ணெய் எடுத்து விறகடுப்பில் காய்ச்சிய மணல் நெய்.</p>
+              
+              <div class="pt-2">
+                <span class="text-[10px] text-outline font-bold block mb-1">அளவு தேர்வு (Size):</span>
+                <div class="flex gap-2">
+                  <button type="button" onclick="setProductVariant('ghee', '200ml', 260, 290)" class="variant-btn-ghee px-2 py-1 rounded text-xs font-bold border border-surface-container bg-surface-container text-on-surface-variant">200 ml</button>
+                  <button type="button" onclick="setProductVariant('ghee', '500ml', 580, 650)" class="variant-btn-ghee active-variant px-2 py-1 rounded text-xs font-bold border border-primary bg-primary text-on-primary">500 ml (₹580)</button>
+                  <button type="button" onclick="setProductVariant('ghee', '1L', 1120, 1250)" class="variant-btn-ghee px-2 py-1 rounded text-xs font-bold border border-surface-container bg-surface-container text-on-surface-variant">1 Litre</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-surface-container mt-3 flex items-center justify-between">
+              <div>
+                <span id="price-ghee" class="text-lg font-bold font-mono text-primary">₹580</span>
+                <span id="mrp-ghee" class="text-xs text-outline line-through font-mono ml-1">₹650</span>
+              </div>
+              <button onclick="addCurrentVariantToCart('ghee')" class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-xs font-bold">+ சேர்</button>
+            </div>
+          </article>
+
+          <!-- Product 7: Fresh Malai Paneer -->
+          <article class="product-card bg-surface-container-lowest rounded-2xl p-4 border border-surface-container hover:shadow-md transition-all flex flex-col justify-between" data-category="paneer-cheese" data-brand="pasumbaal" data-title="fresh malai paneer soft" id="card-paneer">
+            <div class="space-y-2">
+              <div class="h-36 rounded-xl bg-purple-50 flex flex-col items-center justify-center p-2 relative">
+                <span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-purple-700 text-white text-[10px] font-bold">FRESH 4 AM</span>
+                <span class="material-symbols-outlined text-3xl text-purple-700">lunch_dining</span>
+                <span class="text-xs font-bold text-on-surface">பஞ்சு போன்ற மலாய் பனீர்</span>
+              </div>
+              <h3 class="font-bold text-sm text-on-surface">பிரஷ் மலாய் பனீர் (Fresh Paneer)</h3>
+              <p class="text-xs text-on-surface-variant">100% தூய பசும்பாலில் தினமும் அதிகாலை 4 மணிக்கு தயார் செய்வது.</p>
+              
+              <div class="pt-2">
+                <span class="text-[10px] text-outline font-bold block mb-1">அளவு தேர்வு (Size):</span>
+                <div class="flex gap-2">
+                  <button type="button" onclick="setProductVariant('paneer', '200g', 95, 110)" class="variant-btn-paneer active-variant px-2 py-1 rounded text-xs font-bold border border-primary bg-primary text-on-primary">200 g (₹95)</button>
+                  <button type="button" onclick="setProductVariant('paneer', '500g', 220, 250)" class="variant-btn-paneer px-2 py-1 rounded text-xs font-bold border border-surface-container bg-surface-container text-on-surface-variant">500 g</button>
+                  <button type="button" onclick="setProductVariant('paneer', '1kg', 420, 480)" class="variant-btn-paneer px-2 py-1 rounded text-xs font-bold border border-surface-container bg-surface-container text-on-surface-variant">1 kg</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-surface-container mt-3 flex items-center justify-between">
+              <div>
+                <span id="price-paneer" class="text-lg font-bold font-mono text-primary">₹95</span>
+                <span id="mrp-paneer" class="text-xs text-outline line-through font-mono ml-1">₹110</span>
+              </div>
+              <button onclick="addCurrentVariantToCart('paneer')" class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-xs font-bold">+ சேர்</button>
+            </div>
+          </article>
+
+          <!-- Product 8: Fresh Artisanal Cheese (REQ 5 - NEW CHEESE PRODUCT) -->
+          <article class="product-card bg-surface-container-lowest rounded-2xl p-4 border border-surface-container hover:shadow-md transition-all flex flex-col justify-between" data-category="paneer-cheese" data-brand="pasumbaal" data-title="fresh cooking cheese block slices" id="card-cheese">
+            <div class="space-y-2">
+              <div class="h-36 rounded-xl bg-orange-50 flex flex-col items-center justify-center p-2 relative">
+                <span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-orange-600 text-white text-[10px] font-bold">DAIRY CHEESE</span>
+                <span class="material-symbols-outlined text-3xl text-orange-600">bakery_dining</span>
+                <span class="text-xs font-bold text-orange-900">பிரஷ் குக்கிங் சீஸ் (Cheese)</span>
+              </div>
+              <h3 class="font-bold text-sm text-on-surface">சுத்தமான பசும்பால் சீஸ் (Fresh Cheese)</h3>
+              <p class="text-xs text-on-surface-variant">தோசா, ரொட்டி, சாண்ட்விச் மற்றும் பீட்சாவுக்கு ஏற்ற இயற்கை சீஸ்.</p>
+              
+              <div class="pt-2">
+                <span class="text-[10px] text-outline font-bold block mb-1">அளவு தேர்வு (Size):</span>
+                <div class="flex gap-2">
+                  <button type="button" onclick="setProductVariant('cheese', '200g', 120, 140)" class="variant-btn-cheese active-variant px-2 py-1 rounded text-xs font-bold border border-primary bg-primary text-on-primary">200 g (₹120)</button>
+                  <button type="button" onclick="setProductVariant('cheese', '500g', 280, 320)" class="variant-btn-cheese px-2 py-1 rounded text-xs font-bold border border-surface-container bg-surface-container text-on-surface-variant">500 g (₹280)</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-surface-container mt-3 flex items-center justify-between">
+              <div>
+                <span id="price-cheese" class="text-lg font-bold font-mono text-primary">₹120</span>
+                <span id="mrp-cheese" class="text-xs text-outline line-through font-mono ml-1">₹140</span>
+              </div>
+              <button onclick="addCurrentVariantToCart('cheese')" class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-xs font-bold">+ சேர்</button>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ================= VIEW 2: 7-DAY DELIVERY SCHEDULE & DETAILED BILL (REQ 4 & 6) ================= -->
+    <div id="view-schedule" class="hidden space-y-8">
+      
+      <!-- Customer Loyalty Card -->
+      <div class="bg-surface-container-lowest rounded-3xl p-6 md:p-8 border border-surface-container shadow-sm space-y-6">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div id="sched-user-avatar" class="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xl border-2 border-secondary-container">
+              KM
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-bold text-xs">மதிப்புமிக்க சந்தாதாரர் • Gold Member</span>
+                <span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-semibold" id="sched-pincode-pill">Mandaveli 600028</span>
+              </div>
+              <h2 class="font-headline-md text-2xl font-bold text-primary mt-1" id="sched-greeting">வணக்கம் கவிதா மகாலிங்கம்!</h2>
+              <p class="text-xs text-on-surface-variant">வாசல் விநியோக நேரம்: <b class="text-on-surface">காலை 5:30 - 6:00 AM</b> • Doorstep Bag Delivery</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="bg-secondary-container/25 p-3 rounded-xl border border-secondary-container text-xs">
+              <span class="font-bold text-secondary block">பொக்கிஷம் நாணயங்கள்: 340 Coins</span>
+              <span class="text-[10px] text-on-surface-variant">பில்லில் கழித்துக்கொள்ளலாம் (₹340 மதிப்பு)</span>
+            </div>
+            <button onclick="openVacationModal()" class="px-3.5 py-3 rounded-xl bg-surface-container hover:bg-surface-container-high border border-surface-container text-tertiary font-bold text-xs flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">flight_takeoff</span>
+              <span>விடுமுறை நிறுத்தம் (Pause)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DETAILED WEEKLY BILL BREAKDOWN WITH INSTANT PDF DOWNLOAD (REQ 4 & 6) -->
+      <section class="bg-surface-container-lowest rounded-3xl p-6 md:p-8 border border-surface-container shadow-sm space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-surface-container pb-4">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase">
+              <span class="material-symbols-outlined text-[14px]">receipt</span>
+              <span>வாராந்திர பில் விவரம் • DETAILED WEEKLY BILL</span>
+            </div>
+            <h3 class="font-headline-md text-2xl font-bold text-primary mt-1">இந்த வார பில் கணக்கீடு &amp; விவரங்கள் (Bill Breakdown)</h3>
+            <p class="text-xs text-on-surface-variant">பில் காலம்: இந்த வாரம் • வாடிக்கையாளர்: <b id="bill-cust-name" class="text-on-surface font-bold">கவிதா மகாலிங்கம் (600028)</b> • வாட்ஸ்அப்: <span id="bill-cust-phone" class="font-mono text-primary font-bold">+91 81228 02067</span></p>
+          </div>
+          <button onclick="downloadBillPdf()" class="px-4 py-2.5 rounded-xl bg-primary text-on-primary hover:bg-primary-container text-xs font-bold flex items-center gap-2 shadow transition-all">
+            <span class="material-symbols-outlined text-[18px]">download</span>
+            <span>PDF பில் டவுன்லோட் (Download Bill PDF)</span>
+          </button>
+        </div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-surface-container bg-surface-container-low text-on-surface">
+                <th class="p-3 font-bold">நாள் / தேதி</th>
+                <th class="p-3 font-bold">தயாரிப்பு விவரம்</th>
+                <th class="p-3 font-bold">அளவு (Qty)</th>
+                <th class="p-3 font-bold">விலை / யூனிட்</th>
+                <th class="p-3 font-bold text-right">மொத்தத் தொகை</th>
+                <th class="p-3 font-bold text-center">நிலை</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-surface-container font-mono">
+              <tr>
+                <td class="p-3 font-sans">திங்கள் (Mon)</td>
+                <td class="p-3 font-sans">ஸ்ரீனிவாசா டோன்ட் பால்</td>
+                <td class="p-3 font-bold">1.5 L</td>
+                <td class="p-3">₹46 / L</td>
+                <td class="p-3 font-bold text-right">₹69.00</td>
+                <td class="p-3 text-center"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-sans font-bold">விநியோகமானது ✓</span></td>
+              </tr>
+              <tr>
+                <td class="p-3 font-sans">செவ்வாய் (Tue)</td>
+                <td class="p-3 font-sans">ஸ்ரீனிவாசா டோன்ட் பால்</td>
+                <td class="p-3 font-bold">1.5 L</td>
+                <td class="p-3">₹46 / L</td>
+                <td class="p-3 font-bold text-right">₹69.00</td>
+                <td class="p-3 text-center"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-sans font-bold">விநியோகமானது ✓</span></td>
+              </tr>
+              <tr>
+                <td class="p-3 font-sans">புதன் (Wed)</td>
+                <td class="p-3 font-sans">ஸ்ரீனிவாசா டோன்ட் பால்</td>
+                <td class="p-3 font-bold">1.5 L</td>
+                <td class="p-3">₹46 / L</td>
+                <td class="p-3 font-bold text-right">₹69.00</td>
+                <td class="p-3 text-center"><span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-[10px] font-sans font-bold">நாளை காலை 5:30</span></td>
+              </tr>
+              <tr>
+                <td class="p-3 font-sans">வியாழன் (Thu)</td>
+                <td class="p-3 font-sans">ஸ்ரீனிவாசா டோன்ட் பால்</td>
+                <td class="p-3 font-bold">1.5 L</td>
+                <td class="p-3">₹46 / L</td>
+                <td class="p-3 font-bold text-right">₹69.00</td>
+                <td class="p-3 text-center"><span class="px-2 py-0.5 rounded bg-surface-container text-outline text-[10px] font-sans">திட்டமிடப்பட்டது</span></td>
+              </tr>
+              <tr>
+                <td class="p-3 font-sans">வெள்ளி (Fri)</td>
+                <td class="p-3 font-sans">ஸ்ரீனிவாசா பால் (2L)</td>
+                <td class="p-3 font-bold">2.0 L</td>
+                <td class="p-3">₹46 / L</td>
+                <td class="p-3 font-bold text-right">₹92.00</td>
+                <td class="p-3 text-center"><span class="px-2 py-0.5 rounded bg-surface-container text-outline text-[10px] font-sans">திட்டமிடப்பட்டது</span></td>
+              </tr>
+              <tr>
+                <td class="p-3 font-sans">சனி (Sat)</td>
+                <td class="p-3 font-sans">ஸ்ரீனிவாசா பால் (1.5L) + மண்பானைத் தயிர் (500g)</td>
+                <td class="p-3 font-bold">1.5 L + 1 Pot</td>
+                <td class="p-3">₹46/L + ₹50</td>
+                <td class="p-3 font-bold text-right">₹119.00</td>
+                <td class="p-3 text-center"><span class="px-2 py-0.5 rounded bg-surface-container text-outline text-[10px] font-sans">திட்டமிடப்பட்டது</span></td>
+              </tr>
+              <tr>
+                <td class="p-3 font-sans">ஞாயிறு (Sun)</td>
+                <td class="p-3 font-sans">ஸ்ரீனிவாசா பால் (ஞாயிறு சிறப்பு)</td>
+                <td class="p-3 font-bold">2.0 L</td>
+                <td class="p-3">₹46 / L</td>
+                <td class="p-3 font-bold text-right">₹92.00</td>
+                <td class="p-3 text-center"><span class="px-2 py-0.5 rounded bg-surface-container text-outline text-[10px] font-sans">திட்டமிடப்பட்டது</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Bill Totals Card -->
+        <div class="bg-surface-container-low rounded-2xl p-5 border border-surface-container grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          <div class="space-y-1.5 text-xs">
+            <div class="flex justify-between"><span>மொத்த பால் நுகர்வு:</span><b class="font-mono">11.5 Liters</b></div>
+            <div class="flex justify-between"><span>பால் கட்டணம்:</span><span class="font-mono">₹529.00</span></div>
+            <div class="flex justify-between"><span>கூடுதல் பொருட்கள் (தயிர்):</span><span class="font-mono">₹50.00</span></div>
+            <div class="flex justify-between text-emerald-700 font-bold"><span>பொக்கிஷம் நாணயங்கள் கழிவு:</span><span class="font-mono">- ₹50.00</span></div>
+            <div class="flex justify-between"><span>காலை வாசல் விநியோக கட்டணம்:</span><b class="text-primary">இலவசம் (₹0)</b></div>
+            <div class="flex justify-between text-base font-bold text-primary border-t border-surface-container pt-2">
+              <span>நிகரத் தொகை (Net Payable):</span>
+              <span class="font-mono text-xl font-bold">₹529.00</span>
+            </div>
+          </div>
+
+          <div class="space-y-2.5 md:border-l border-surface-container md:pl-6">
+            <button onclick="downloadBillPdf()" class="w-full py-3 bg-secondary text-white rounded-xl font-bold text-xs hover:bg-secondary-container hover:text-black flex items-center justify-center gap-2 transition-colors">
+              <span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+              <span>மொபைலில் PDF பில் சேமிக்க (Save PDF on Device)</span>
+            </button>
+            <button onclick="alert('Google Pay / PhonePe UPI மூலம் ₹529.00 பில் செலுத்தப்பட்டது! ரசீது #PB-PAY-8841.');" class="w-full py-2.5 bg-primary text-on-primary rounded-xl font-bold text-xs hover:bg-primary-container flex items-center justify-center gap-1.5 transition-colors">
+              <span class="material-symbols-outlined text-[16px]">qr_code_scanner</span>
+              <span>UPI மூலம் உடனடியாக செலுத்தவும்</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ================= VIEW 3: BULK & KALYANA ORDERS WITH ALL PRODUCTS (REQ 6) ================= -->
+    <div id="view-bulk" class="hidden space-y-8">
+      
+      <div class="bg-tertiary text-on-tertiary p-4 rounded-2xl flex flex-wrap items-center justify-between gap-3 text-xs font-semibold">
+        <div class="flex items-center gap-2">
+          <span class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-fixed flex items-center justify-center font-bold">🏛️</span>
+          <span class="text-sm font-bold">கல்யாணம், கிரகப்பிரவேசம் &amp; விசேஷங்களுக்கான மொத்த பால் &amp; டெய்ரி ஆர்டர்கள்</span>
+        </div>
+        <span class="text-secondary-fixed font-bold">✦ 15% முதல் 25% வரை மொத்த தள்ளுபடி • அதிகாலை 3:30 AM முகூர்த்த விநியோகம்</span>
+      </div>
+
+      <div class="bg-surface-container-lowest rounded-3xl p-6 md:p-10 border border-surface-container shadow-sm space-y-6">
+        <div>
+          <h2 class="font-headline-lg text-2xl md:text-3xl font-bold text-primary">விசேஷ மொத்த ஆர்டர் முன்பதிவு (Kalyana Bulk Quote)</h2>
+          <p class="text-xs text-on-surface-variant mt-1">பால் மட்டுமின்றி தயிர், நெய், பனீர், சீஸ் மற்றும் வெண்ணெய் அனைத்தையும் மொத்த அளவில் தேர்வு செய்யுங்கள்.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <!-- Product Volume Controls for ALL Products -->
+          <div class="lg:col-span-7 space-y-5">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-on-surface mb-1">விசேஷ வகை (Event Type) *</label>
+                <select id="bulk-event-type" class="w-full bg-surface-container-low text-xs p-2.5 rounded-xl border border-surface-container">
+                  <option value="கல்யாண முகூர்த்தம்">கல்யாண முகூர்த்தம் (Wedding Ceremony)</option>
+                  <option value="புதுமனை புகுவிழா">புதுமனை புகுவிழா (Housewarming)</option>
+                  <option value="கோயில் திருவிழா">கோயில் திருவிழா &amp; பூசைகள் (Temple Festival)</option>
+                  <option value="மணிவிழா">சஷ்டியப்தபூர்த்தி / மணிவிழா (Function)</option>
+                  <option value="கேட்டரிங்">கேட்டரிங் சர்வீஸ் (Catering Service)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-on-surface mb-1">விசேஷ நாள் (Event Date) *</label>
+                <input id="bulk-event-date" type="date" class="w-full bg-surface-container-low text-xs p-2.5 rounded-xl border border-surface-container" value="2026-11-12">
+              </div>
+            </div>
+
+            <!-- AUTO-FILLED CUSTOMER & VENUE DETAILS (REQ) -->
+            <div class="bg-surface-container-low p-3.5 rounded-2xl border border-surface-container space-y-2.5 text-xs">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-primary text-[11px] flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">person_pin</span>
+                  <span>வாடிக்கையாளர் &amp; மண்டப முகவரி (Customer &amp; Venue Details):</span>
+                </span>
+                <span class="text-[10px] bg-primary/10 text-primary font-bold px-2 py-0.5 rounded">தானாக நிரப்பப்பட்டது (Auto-Filled)</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div>
+                  <label class="block font-semibold mb-0.5 text-[11px]">பெயர் (Organizer Name) *</label>
+                  <input id="bulk-cust-name" type="text" class="w-full bg-white text-xs p-2 rounded-xl border border-surface-container font-semibold" placeholder="பெயர்">
+                </div>
+                <div>
+                  <label class="block font-semibold mb-0.5 text-[11px]">வாட்ஸ்அப் எண் (Phone) *</label>
+                  <input id="bulk-cust-phone" type="tel" class="w-full bg-white text-xs p-2 rounded-xl border border-surface-container font-mono font-bold" placeholder="மொபைல் எண்">
+                </div>
+                <div>
+                  <label class="block font-semibold mb-0.5 text-[11px]">மண்டபம் / பகுதி (Venue / Locality) *</label>
+                  <input id="bulk-cust-venue" type="text" class="w-full bg-white text-xs p-2 rounded-xl border border-surface-container font-semibold" placeholder="எ.கா: மாந்தவெளி">
+                </div>
+                <div>
+                  <label class="block font-semibold mb-0.5 text-[11px]">டெலிவரி பின்கோடு (Delivery Pincode) *</label>
+                  <input id="bulk-cust-pincode" type="text" maxlength="6" class="w-full bg-white text-xs p-2 rounded-xl border border-surface-container font-mono font-bold" placeholder="600028">
+                </div>
+              </div>
+            </div>
+
+            <!-- MULTI-PRODUCT QUANTITY CONTROLS (REQ 6) -->
+            <div class="bg-surface-container-low p-4 rounded-2xl border border-surface-container space-y-4 text-xs">
+              <span class="font-bold text-primary uppercase text-[11px] block">அனைத்து பால் &amp; டெய்ரி பொருட்கள் தேர்வு (All Dairy Items):</span>
+
+              <!-- 1. Milk Liters -->
+              <div class="flex items-center justify-between border-b border-surface-container pb-2">
+                <div>
+                  <b class="text-on-surface block">🥛 தூய பசும்பால் (Fresh Cow Milk):</b>
+                  <span class="text-[10px] text-outline">அதிகாலை 3:30 AM முகூர்த்த பால் பொங்குதல்</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="number" id="bulk-qty-milk" value="50" min="10" max="1000" step="10" oninput="calculateComprehensiveBulk()" class="w-20 bg-white p-1.5 rounded-lg border border-surface-container font-mono text-center font-bold text-primary">
+                  <span class="text-xs">Liters</span>
+                </div>
+              </div>
+
+              <!-- 2. Curd Kg -->
+              <div class="flex items-center justify-between border-b border-surface-container pb-2">
+                <div>
+                  <b class="text-on-surface block">🥣 விருந்து கெட்டித் தயிர் (Feast Curd):</b>
+                  <span class="text-[10px] text-outline">சாப்பாட்டுப் பந்திக்கு கெட்டியான தயிர்</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="number" id="bulk-qty-curd" value="20" min="0" max="500" step="5" oninput="calculateComprehensiveBulk()" class="w-20 bg-white p-1.5 rounded-lg border border-surface-container font-mono text-center font-bold text-primary">
+                  <span class="text-xs">Kg</span>
+                </div>
+              </div>
+
+              <!-- 3. Pure Ghee Liters -->
+              <div class="flex items-center justify-between border-b border-surface-container pb-2">
+                <div>
+                  <b class="text-on-surface block">🧈 பிலோனா மணல் நெய் (Traditional Ghee):</b>
+                  <span class="text-[10px] text-outline">ஹோமம், சாம்பார் மற்றும் ஸ்வீட்ஸ் செய்ய</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="number" id="bulk-qty-ghee" value="5" min="0" max="200" step="1" oninput="calculateComprehensiveBulk()" class="w-20 bg-white p-1.5 rounded-lg border border-surface-container font-mono text-center font-bold text-primary">
+                  <span class="text-xs">Liters</span>
+                </div>
+              </div>
+
+              <!-- 4. Fresh Paneer Kg -->
+              <div class="flex items-center justify-between border-b border-surface-container pb-2">
+                <div>
+                  <b class="text-on-surface block">🧀 பிரஷ் மலாய் பனீர் (Fresh Paneer):</b>
+                  <span class="text-[10px] text-outline">பஞ்சாபி / தென்னிந்திய பனீர் கிரேவிகளுக்கு</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="number" id="bulk-qty-paneer" value="10" min="0" max="300" step="5" oninput="calculateComprehensiveBulk()" class="w-20 bg-white p-1.5 rounded-lg border border-surface-container font-mono text-center font-bold text-primary">
+                  <span class="text-xs">Kg</span>
+                </div>
+              </div>
+
+              <!-- 5. Cooking Cheese Kg -->
+              <div class="flex items-center justify-between border-b border-surface-container pb-2">
+                <div>
+                  <b class="text-on-surface block">🧀 குக்கிங் சீஸ் &amp; வெண்ணெய் (Cheese &amp; Butter):</b>
+                  <span class="text-[10px] text-outline">லைவ் தோசா ஸ்டால் &amp; சாண்ட்விச்</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="number" id="bulk-qty-cheese" value="5" min="0" max="200" step="1" oninput="calculateComprehensiveBulk()" class="w-20 bg-white p-1.5 rounded-lg border border-surface-container font-mono text-center font-bold text-primary">
+                  <span class="text-xs">Kg</span>
+                </div>
+              </div>
+
+              <!-- 6. Spiced Butter Milk Liters -->
+              <div class="flex items-center justify-between">
+                <div>
+                  <b class="text-on-surface block">🥛 தாளித்த மோர் கேன்கள் (Welcome Butter Milk):</b>
+                  <span class="text-[10px] text-outline">வரவேற்பு பானம் (கருவேப்பிலை, இஞ்சி, பெருங்காயம்)</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="number" id="bulk-qty-mor" value="25" min="0" max="500" step="5" oninput="calculateComprehensiveBulk()" class="w-20 bg-white p-1.5 rounded-lg border border-surface-container font-mono text-center font-bold text-primary">
+                  <span class="text-xs">Liters</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Quotation & WhatsApp Request to 8122802067 -->
+          <div class="lg:col-span-5 bg-surface-container-low p-6 rounded-2xl border border-surface-container space-y-4 h-fit text-xs">
+            <div class="flex items-center justify-between border-b border-surface-container pb-2">
+              <span class="font-bold text-secondary uppercase text-[10px]">உடனடி விசேஷ பில் மதிப்பீடு</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-[10px]">20% Bulk Bundle OFF</span>
+            </div>
+
+            <div class="space-y-2">
+              <div class="flex justify-between"><span>மொத்த சில்லறை மதிப்பு:</span><span id="bulk-sum-retail" class="font-mono line-through text-outline">₹12,450</span></div>
+              <div class="flex justify-between text-emerald-700 font-bold"><span>மொத்த ஆர்டர் தள்ளுபடி (20% OFF):</span><span id="bulk-sum-discount" class="font-mono">- ₹2,490</span></div>
+              <div class="flex justify-between"><span>குளிரூட்டப்பட்ட பிரத்யேக வேன் டெலிவரி:</span><b class="text-primary">இலவசம்</b></div>
+              <div class="flex justify-between text-base font-bold text-primary border-t border-surface-container pt-2">
+                <span>விசேஷ நிகரத் தொகை (Net Total):</span>
+                <span id="bulk-sum-net" class="font-mono text-xl font-bold">₹9,960</span>
+              </div>
+            </div>
+
+            <div class="space-y-2 pt-2">
+              <a id="bulk-whatsapp-link" href="https://wa.me/918122802067?text=Vanakkam!%20I%20want%20to%20book%20a%20Bulk%20Kalyana%20Dairy%20Order" target="_blank" class="w-full py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-xl font-bold text-xs shadow flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">chat</span>
+                <span>வாட்ஸ்அப் வழி முன்பதிவு (8122802067)</span>
+              </a>
+              <button onclick="submitBulkOrderToHost()" class="w-full py-3 bg-primary text-on-primary rounded-xl font-bold text-xs hover:bg-primary-container flex items-center justify-center gap-1.5">
+                <span class="material-symbols-outlined text-[18px]">send</span>
+                <span>ஹோஸ்டுக்கு ஆர்டர் அனுப்பவும் (Submit Order)</span>
+              </button>
+            </div>
+            <p class="text-[10px] text-center text-outline">ஆர்டர் விவரங்கள் ஹோஸ்ட் டேட்டாபேஸில் உடனே சேமிக்கப்படும்.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= VIEW 4: TAMIL FESTIVAL SPECIAL OFFERS ================= -->
+    <div id="view-offers" class="hidden space-y-8">
+      
+      <div class="bg-gradient-to-r from-tertiary via-secondary to-primary text-white p-4 rounded-3xl shadow flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+        <div class="flex items-center gap-3">
+          <span class="text-3xl">🪔</span>
+          <div>
+            <span class="text-[10px] uppercase tracking-widest text-secondary-container font-bold">தமிழ் காலண்டர் விழா சலுகைகள்</span>
+            <h2 class="font-headline-md text-2xl font-bold">பண்டிகை சிறப்பு பால், நெய் &amp; பனீர் ஆஃபர்கள்</h2>
+          </div>
+        </div>
+        <span class="bg-white/20 px-3 py-1.5 rounded-xl font-bold">கூப்பன் குறியீட்டை பயன்படுத்தி கழிவு பெறவும்</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Deal 1 -->
+        <div class="bg-surface-container-lowest rounded-3xl p-5 border border-surface-container space-y-3">
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-secondary-container text-on-secondary-fixed">தைப்பொங்கல் • THAI PONGAL</span>
+          <h3 class="font-bold text-base text-primary">மகா பொங்கல் சுப பால் &amp; மண்பானை பேக்</h3>
+          <p class="text-xs text-on-surface-variant">2L கறவை பசும்பால் + 200ml பிலோனா நெய் + அலங்கார மண்பானை &amp; மஞ்சள் கொத்து.</p>
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-mono text-xl font-bold text-primary">₹399 <small class="line-through text-outline font-normal">₹499</small></span>
+            <button onclick="addToCart('fest-pongal', 'மகா பொங்கல் சுப பால் பேக்', 399, 'Pongal')" class="px-3 py-1.5 bg-primary text-white rounded-lg font-bold">+ சேர்</button>
+          </div>
+        </div>
+
+        <!-- Deal 2 -->
+        <div class="bg-surface-container-lowest rounded-3xl p-5 border border-surface-container space-y-3">
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-900">கார்த்திகை தீபம் • DEEPAM GHEE</span>
+          <h3 class="font-bold text-base text-primary">அகல் விளக்கு தூய பசு நெய் ஜாடி</h3>
+          <p class="text-xs text-on-surface-variant">1 Litre சுத்தமான மணல் நெய் + 24 பாரம்பரிய அகல் விளக்குகள் முற்றிலும் இலவசம்.</p>
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-mono text-xl font-bold text-primary">₹950 <small class="line-through text-outline font-normal">₹1,120</small></span>
+            <button onclick="addToCart('fest-deepam', 'கார்த்திகை அகல் விளக்கு பசு நெய் (1L)', 950, 'Deepam')" class="px-3 py-1.5 bg-primary text-white rounded-lg font-bold">+ சேர்</button>
+          </div>
+        </div>
+
+        <!-- Deal 3 -->
+        <div class="bg-surface-container-lowest rounded-3xl p-5 border border-surface-container space-y-3">
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-purple-100 text-purple-900">தீபாவளி &amp; கொலு • DIWALI SWEET</span>
+          <h3 class="font-bold text-base text-primary">பனீர், பால்கோவா &amp; நெய் ஸ்வீட் காம்போ</h3>
+          <p class="text-xs text-on-surface-variant">500g மலாய் பனீர் + 500g ஸ்ரீவில்லிபுத்தூர் பால்கோவா + 500ml பிலோனா நெய்.</p>
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-mono text-xl font-bold text-primary">₹799 <small class="line-through text-outline font-normal">₹1,050</small></span>
+            <button onclick="addToCart('fest-diwali', 'தீபாவளி ஸ்வீட் காம்போ', 799, 'Diwali')" class="px-3 py-1.5 bg-primary text-white rounded-lg font-bold">+ சேர்</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= VIEW 5: GOOGLE MAP ORDER TRACKING (REQ 1) ================= -->
+    <div id="view-tracking" class="hidden space-y-8">
+      
+      <div class="bg-surface-container-lowest rounded-3xl p-6 md:p-8 border border-surface-container shadow-sm space-y-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-surface-container pb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
+              <span class="material-symbols-outlined text-3xl">map</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-headline-sm text-xl font-bold text-primary">Google Map நேரலை டிராக்கிங் (Live Tracking)</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">ON THE WAY</span>
+              </div>
+              <p class="text-xs text-on-surface-variant">
+                ஆர்டர் எண்: <b class="text-on-surface font-mono">#PB-84920</b> • 
+                வாடிக்கையாளர்: <b id="tracking-cust-name" class="text-primary font-bold">கவிதா மகாலிங்கம்</b> • 
+                விநியோக பகுதி: <span id="tracking-cust-location" class="font-semibold text-on-surface bg-surface-container px-2 py-0.5 rounded">Mandaveli (600028)</span>
+              </p>
+            </div>
+          </div>
+          <div class="text-left md:text-right">
+            <span class="text-xs text-outline block">எதிர்பார்க்கப்படும் வாசல் நேரம் (ETA):</span>
+            <span class="font-headline-sm text-2xl font-bold text-primary font-mono">காலை 5:45 AM</span>
+            <span class="text-[11px] text-emerald-700 font-semibold block">இன்னும் 18 நிமிடங்களில் உங்கள் வாசலில்!</span>
+          </div>
+        </div>
+
+        <!-- EMBEDDED GOOGLE MAP (REQ 1) -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-on-surface flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+              <span id="map-target-title">Google Maps விநியோக வழித்தடம்: Mandaveli, Chennai 600028</span>
+            </span>
+            <a id="gmaps-external-link" href="https://www.google.com/maps/dir/?api=1&origin=Koyambedu+Chennai&destination=Mandaveli+Chennai+600028" target="_blank" class="text-primary font-bold hover:underline flex items-center gap-1">
+              <span>Google Maps செயலியில் திறக்கவும்</span>
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+            </a>
+          </div>
+
+          <!-- Interactive Google Maps Iframe -->
+          <div class="relative w-full h-80 sm:h-96 rounded-2xl overflow-hidden border border-surface-container shadow-inner">
+            <iframe id="google-maps-frame" class="w-full h-full border-0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Mandaveli+Chennai+Tamil+Nadu+600028&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe>
+            
+            <!-- Live Van Beacon Overlay -->
+            <div class="absolute bottom-3 left-3 bg-surface/95 backdrop-blur-md p-3 rounded-xl border border-surface-container shadow-md flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-primary text-white flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined text-xl">electric_moped</span>
+              </div>
+              <div class="text-xs">
+                <span class="font-bold text-on-surface block">குளிர்சங்கிலி வேன் எண்: TN 07 AX 4920</span>
+                <span class="text-[11px] text-emerald-700 font-semibold">1.8 km தொலைவில் • விநியோகஸ்தர் முருகன் (Murugan)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Delivery Executive Card -->
+        <div class="bg-surface-container-low p-4 rounded-2xl border border-surface-container flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-primary/20 text-primary font-bold flex items-center justify-center text-lg">மு</div>
+            <div>
+              <h4 class="font-bold text-sm text-on-surface">முருகன் (Murugan R)</h4>
+              <p class="text-xs text-on-surface-variant">மயிலாப்பூர் - மாந்தவெளி விநியோகஸ்தர் • 4.9 ★ (1,840+ டெலிவரிகள்)</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <a href="tel:8122802067" class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">call</span>
+              <span>அழைக்க (+91 81228 02067)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= VIEW 6: FAST COD & UPI CHECKOUT ================= -->
+    <div id="view-checkout" class="hidden space-y-8">
+      
+      <div class="bg-surface-container-lowest rounded-3xl p-6 md:p-8 border border-surface-container shadow-sm space-y-6">
+        <div class="flex items-center justify-between flex-wrap gap-2 border-b border-surface-container pb-4">
+          <div>
+            <span class="text-xs text-secondary font-bold uppercase">பாதுகாப்பான கட்டணம் • FAST SECURE CHECKOUT</span>
+            <h2 class="font-headline-md text-2xl font-bold text-primary">டெலிவரி முகவரி &amp; கட்டண முறை</h2>
+          </div>
+          <span class="text-xs font-semibold text-primary">256-Bit SSL Encrypted</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <div class="lg:col-span-7 space-y-4 text-xs">
+            <div class="space-y-2">
+              <label class="block font-bold text-on-surface uppercase">பகுதி &amp; பின்கோடு (Locality &amp; Pincode) *</label>
+              <select id="checkout-locality-select" class="w-full bg-surface-container-low text-xs p-3 rounded-xl border border-surface-container">
+                <option value="Mandaveli 600028" selected>மாந்தவெளி - Mandaveli (600028)</option>
+                <option value="Mylapore 600004">மயிலாப்பூர் - Mylapore (600004)</option>
+                <option value="Anna Nagar 600040">அண்ணா நகர் - Anna Nagar (600040)</option>
+                <option value="Adyar 600020">அடையாறு - Adyar (600020)</option>
+                <option value="Thiruvallur Town 602001">திருவள்ளூர் நகரம் - Thiruvallur (602001)</option>
+                <option value="Poonamallee 600056">பூந்தமல்லி - Poonamallee (600056)</option>
+                <option value="Avadi 600054">ஆவடி - Avadi (600054)</option>
+              </select>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block font-semibold mb-1">பெயர் (Customer Name) *</label>
+                <input id="checkout-name" type="text" class="w-full bg-surface-container-low text-xs p-3 rounded-xl border border-surface-container font-semibold" placeholder="பெயர்">
+              </div>
+              <div>
+                <label class="block font-semibold mb-1">வாட்ஸ்அப் எண் (WhatsApp Mobile) *</label>
+                <input id="checkout-phone" type="tel" class="w-full bg-surface-container-low text-xs p-3 rounded-xl border border-surface-container font-mono font-bold" placeholder="மொபைல் எண்">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block font-semibold mb-1">வீட்டு முகவரி (Door / Flat / Street) *</label>
+                <input id="checkout-address" type="text" class="w-full bg-surface-container-low text-xs p-3 rounded-xl border border-surface-container font-medium" placeholder="எ.கா: Plot 14, 2nd Cross Street">
+              </div>
+              <div>
+                <label class="block font-semibold mb-1">பின்கோடு (Pincode) *</label>
+                <input id="checkout-pincode" type="text" maxlength="6" class="w-full bg-surface-container-low text-xs p-3 rounded-xl border border-surface-container font-mono font-bold text-primary" placeholder="600028">
+              </div>
+            </div>
+
+            <div class="space-y-2 pt-2">
+              <label class="block font-bold uppercase">கட்டண முறை (Payment Method) *</label>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <label class="flex items-start gap-3 p-3.5 rounded-xl border-2 border-primary bg-primary/5 cursor-pointer">
+                  <input type="radio" name="payment-method" value="cod" checked class="mt-0.5 accent-primary">
+                  <div><b class="text-primary block">நேரடி பணம் (Cash on Delivery)</b><span class="text-[11px] text-on-surface-variant">பால் வாசல் வந்ததும் பணம் செலுத்துங்கள்.</span></div>
+                </label>
+                <label class="flex items-start gap-3 p-3.5 rounded-xl border border-surface-container bg-surface-container-low cursor-pointer">
+                  <input type="radio" name="payment-method" value="upi" class="mt-0.5 accent-primary">
+                  <div><b class="block">Google Pay / PhonePe UPI QR</b><span class="text-[11px] text-on-surface-variant">உடனடி ஆன்லைன் கட்டணம்.</span></div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-surface-container-low p-5 rounded-2xl border border-surface-container space-y-4 h-fit text-xs">
+            <h3 class="font-bold text-sm text-on-surface border-b border-surface-container pb-2">ஆர்டர் விவரம் (Summary)</h3>
+            <div id="checkout-items-list" class="space-y-2 divide-y divide-surface-container"></div>
+            
+            <div class="space-y-1.5 border-t border-surface-container pt-3">
+              <div class="flex justify-between"><span>மொத்தம்:</span><span id="checkout-subtotal" class="font-mono font-semibold">₹140</span></div>
+              <div class="flex justify-between text-emerald-700 font-semibold"><span>சலுகை கழிவு:</span><span id="checkout-discount" class="font-mono">- ₹0</span></div>
+              <div class="flex justify-between"><span>டெலிவரி:</span><b class="text-primary font-mono">இலவசம்</b></div>
+              <div class="flex justify-between text-sm font-bold text-primary border-t border-surface-container pt-2">
+                <span>செலுத்த வேண்டியது:</span>
+                <span id="checkout-total" class="font-mono text-base font-bold">₹140</span>
+              </div>
+            </div>
+
+            <button onclick="placeOrder()" class="w-full py-3.5 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-bold text-xs shadow-lg">
+              ஆர்டரை உறுதி செய்க (Confirm Order)
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-[#103956] text-[#d0e0ea] py-10 px-4 md:px-8 border-t border-white/10 mt-16 text-xs">
+    <div class="max-w-7xl mx-auto space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="space-y-2 md:col-span-2">
+          <span class="font-headline-sm text-lg font-bold text-white block">பாலு பஜாரு • Paal Bazaar</span>
+          <p class="text-white/80 max-w-sm leading-relaxed">
+            சென்னை &amp; திருவள்ளூர் மாவட்டங்களின் நம்பகமான பால், தயிர், நெய், பனீர் மற்றும் சீஸ் மார்க்கெட்பிளேஸ்.
+          </p>
+          <p class="text-[#25D366] font-bold">WhatsApp Hotline: +91 81228 02067</p>
+        </div>
+        <div class="space-y-1.5 text-white/70">
+          <span class="font-bold text-white uppercase block">விரைவு பக்கங்கள்</span>
+          <button onclick="showTab('storefront')" class="block hover:text-white">பால் சந்தை</button>
+          <button onclick="showTab('schedule-view')" class="block hover:text-white">பில் விவரம் &amp; PDF</button>
+          <button onclick="showTab('bulk-view')" class="block hover:text-white">கல்யாண பல்க் ஆர்டர்</button>
+          <button onclick="showTab('tracking-view')" class="block hover:text-white">Google Map டிராக்கிங்</button>
+        </div>
+        <div class="space-y-1.5 text-white/70">
+          <span class="font-bold text-white uppercase block">ஹோஸ்ட் அட்மின் போர்டல்</span>
+          <button onclick="openHostAdminModal()" class="block text-secondary-container font-bold hover:underline">
+            🔑 வாடிக்கையாளர் தரவு (Host Leads Hub)
+          </button>
+          <p class="text-[11px] opacity-75">FSSAI License: 12423008000123</p>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-4 text-center text-white/60">
+        © 2026 பாலு பஜாரு (Paal Bazaar). அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை • Contact: 8122802067
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= FLOATING WHATSAPP PILL (8122802067) ================= -->
+  <a href="https://wa.me/918122802067?text=Vanakkam%20Paal%20Bazaar!" target="_blank" class="fixed bottom-6 right-6 z-40 bg-[#25D366] text-white p-3.5 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center" aria-label="WhatsApp Quick Order">
+    <span class="material-symbols-outlined text-[26px]">chat</span>
+  </a>
+
+  <!-- ================= SLIDE-OVER CART DRAWER ================= -->
+  <div id="cart-drawer-backdrop" onclick="closeCartDrawer()" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 transition-opacity"></div>
+  <aside id="cart-drawer" class="fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-surface-container-lowest z-50 shadow-2xl border-l border-surface-container translate-x-full transition-transform duration-300 flex flex-col justify-between">
+    <div class="p-4 border-b border-surface-container flex items-center justify-between bg-surface-container-low">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[22px]">shopping_bag</span>
+        <div><h3 class="font-bold text-sm text-on-surface">உங்கள் கூடை (Cart)</h3><span class="text-[11px] text-on-surface-variant" id="drawer-cart-subtitle">0 பொருட்கள்</span></div>
+      </div>
+      <button onclick="closeCartDrawer()" class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center"><span class="material-symbols-outlined text-sm">close</span></button>
+    </div>
+    <div class="flex-1 overflow-y-auto p-4 space-y-3" id="drawer-items-list"></div>
+    <div class="p-4 border-t border-surface-container bg-surface-container-low space-y-2.5 text-xs">
+      <div class="flex justify-between"><span>மொத்தம்:</span><span id="drawer-subtotal" class="font-mono font-bold">₹0</span></div>
+      <div class="flex justify-between text-emerald-700 font-semibold" id="drawer-discount-row"><span>கழிவு:</span><span id="drawer-discount" class="font-mono">- ₹0</span></div>
+      <div class="flex justify-between text-sm font-bold text-primary border-t border-surface-container pt-1"><span>செலுத்த வேண்டியது:</span><span id="drawer-total" class="font-mono">₹0</span></div>
+      <button onclick="goToCheckoutFromCart()" class="w-full py-3 rounded-xl bg-primary text-on-primary font-bold text-xs shadow">செக்-அவுட்டுக்கு செல்லவும் →</button>
+    </div>
+  </aside>
+
+  <!-- ================= MODAL: CUSTOMER INPUT ONBOARDING INTERFACE (REQ 1 & 2) ================= -->
+  <dialog id="profile-modal" class="p-0 rounded-3xl border-0 bg-transparent backdrop:bg-black/70 backdrop:backdrop-blur-md max-w-lg w-full max-h-[92vh] overflow-y-auto">
+    <div class="bg-surface-container-lowest rounded-3xl p-6 sm:p-7 border border-surface-container shadow-2xl space-y-4 text-xs">
+      
+      <!-- Welcome Header -->
+      <div class="flex items-start justify-between border-b border-surface-container pb-3.5">
+        <div class="flex items-start gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-primary text-secondary-container flex items-center justify-center shadow-md shrink-0">
+            <span class="material-symbols-outlined text-2xl">water_drop</span>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5 text-[11px] text-secondary font-bold uppercase tracking-wider">
+              <span>வணக்கம் 🙏</span>
+              <span>•</span>
+              <span>WELCOME TO PAAL BAZAAR</span>
+            </div>
+            <h3 class="font-headline-sm text-lg sm:text-xl font-bold text-primary leading-snug">வாடிக்கையாளர் பதிவு &amp; விநியோக முகவரி</h3>
+            <p class="text-[11px] text-on-surface-variant mt-0.5">காலை 5:00 - 7:00 AM வாசல் விநியோகம், பில் மற்றும் நேரடி டிராக்கிங்கிற்கு உங்கள் தகவல்களை உள்ளிடவும்.</p>
+          </div>
+        </div>
+        <button onclick="profileModal.close()" class="w-8 h-8 rounded-xl bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-all shrink-0">
+          <span class="material-symbols-outlined text-sm">close</span>
+        </button>
+      </div>
+
+      <!-- Input Form -->
+      <div class="space-y-3">
+        
+        <!-- 1. Customer Name -->
+        <div>
+          <label class="block font-bold text-xs text-on-surface mb-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm text-primary">person</span>
+            <span>வாடிக்கையாளர் பெயர் (Your Full Name) *</span>
+          </label>
+          <input id="prof-name-input" type="text" placeholder="எ.கா: ரஞ்சித் குமார் (Ranjith Kumar)" class="w-full bg-surface-container-low text-xs p-3 rounded-xl border border-surface-container focus:ring-2 focus:ring-primary focus:outline-none font-semibold text-on-surface">
+        </div>
+
+        <!-- 2. WhatsApp / Mobile Number -->
+        <div>
+          <label class="block font-bold text-xs text-on-surface mb-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm text-primary">call</span>
+            <span>வாட்ஸ்அப் / மொபைல் எண் (WhatsApp Mobile Number) *</span>
+          </label>
+          <div class="relative flex items-center">
+            <span class="absolute left-3 text-xs font-bold text-outline font-mono">+91</span>
+            <input id="prof-phone-input" type="tel" maxlength="10" placeholder="8122802067" class="w-full bg-surface-container-low text-xs pl-12 pr-3 py-3 rounded-xl border border-surface-container focus:ring-2 focus:ring-primary focus:outline-none font-mono font-bold text-on-surface">
+          </div>
+          <span class="text-[10px] text-on-surface-variant mt-0.5 block">காலை விநியோக SMS அறிவிப்புகள் மற்றும் PDF பில் இந்த வாட்ஸ்அப் எண்ணிற்கு அனுப்பப்படும்.</span>
+        </div>
+
+        <!-- 3. Delivery Location / Area -->
+        <div>
+          <label class="block font-bold text-xs text-on-surface mb-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm text-primary">location_on</span>
+            <span>விநியோக பகுதி / ஊர் (Delivery Location) *</span>
+          </label>
+          <input id="prof-location-input" type="text" placeholder="எ.கா: மாந்தவெளி, சென்னை / திருவள்ளூர் நகரம்" class="w-full bg-surface-container-low text-xs p-3 rounded-xl border border-surface-container focus:ring-2 focus:ring-primary focus:outline-none font-semibold text-on-surface">
+          
+          <!-- Quick Locality Chips -->
+          <div class="flex flex-wrap gap-1.5 mt-2">
+            <span class="text-[10px] text-outline font-semibold self-center mr-1">விரைவுத் தேர்வு:</span>
+            <button type="button" onclick="quickFillLocality('Mandaveli, Chennai', '600028')" class="px-2 py-0.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-[11px] font-medium text-primary border border-surface-container">மாந்தவெளி (600028)</button>
+            <button type="button" onclick="quickFillLocality('Mylapore, Chennai', '600004')" class="px-2 py-0.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-[11px] font-medium text-primary border border-surface-container">மயிலாப்பூர் (600004)</button>
+            <button type="button" onclick="quickFillLocality('Anna Nagar, Chennai', '600040')" class="px-2 py-0.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-[11px] font-medium text-primary border border-surface-container">அண்ணா நகர் (600040)</button>
+            <button type="button" onclick="quickFillLocality('Thiruvallur Town', '602001')" class="px-2 py-0.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-[11px] font-medium text-secondary border border-surface-container">திருவள்ளூர் (602001)</button>
+            <button type="button" onclick="quickFillLocality('Avadi', '600054')" class="px-2 py-0.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-[11px] font-medium text-secondary border border-surface-container">ஆவடி (600054)</button>
+            <button type="button" onclick="quickFillLocality('Poonamallee', '600056')" class="px-2 py-0.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-[11px] font-medium text-secondary border border-surface-container">பூந்தமல்லி (600056)</button>
+          </div>
+        </div>
+
+        <!-- 4. Pincode -->
+        <div>
+          <label class="block font-bold text-xs text-on-surface mb-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm text-primary">pin_drop</span>
+            <span>பின்கோடு (Pincode - 6 Digits) *</span>
+          </label>
+          <input id="prof-pincode-input" type="text" maxlength="6" oninput="validateModalPincode(this.value)" placeholder="600028" class="w-full bg-surface-container-low text-xs p-3 rounded-xl border border-surface-container focus:ring-2 focus:ring-primary focus:outline-none font-mono font-bold text-on-surface">
+          <div id="modal-pincode-status" class="mt-1.5 text-[11px] flex items-center gap-1 font-semibold text-emerald-800">
+            <span class="material-symbols-outlined text-xs text-primary">check_circle</span>
+            <span>சென்னை &amp; திருவள்ளூர் அனைத்து பகுதிகளிலும் காலை 5:30 விநியோகம் நடப்பில் உள்ளது.</span>
+          </div>
+        </div>
+
+        <!-- 5. Email ID -->
+        <div>
+          <label class="block font-bold text-xs text-on-surface mb-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm text-primary">mail</span>
+            <span>மின்னஞ்சல் முகவரி (Email Address)</span>
+          </label>
+          <input id="prof-email-input" type="email" placeholder="எ.கா: customer@gmail.com" class="w-full bg-surface-container-low text-xs p-3 rounded-xl border border-surface-container focus:ring-2 focus:ring-primary focus:outline-none font-medium text-on-surface">
+        </div>
+
+      </div>
+
+      <!-- Trust Badges Strip -->
+      <div class="grid grid-cols-3 gap-2 bg-surface-container-low p-2.5 rounded-xl text-center text-[10px] text-on-surface-variant font-semibold">
+        <div class="flex items-center justify-center gap-1">🥛 <span>100% பண்ணை பசும்பால்</span></div>
+        <div class="flex items-center justify-center gap-1">🚚 <span>காலை 5:30 AM விநியோகம்</span></div>
+        <div class="flex items-center justify-center gap-1">🎁 <span>₹50 வெல்கம் காயின்கள்</span></div>
+      </div>
+
+      <!-- Footer Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-2 pt-2 border-t border-surface-container">
+        <button type="button" onclick="fillDemoProfile()" class="text-xs text-secondary font-bold hover:underline flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">auto_fix_high</span>
+          <span>மாதிரி விவரங்கள் (Demo Fill)</span>
+        </button>
+        <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+          <button type="button" onclick="profileModal.close()" class="px-4 py-2.5 bg-surface-container hover:bg-surface-container-high rounded-xl text-xs font-semibold text-on-surface">
+            விருந்தினராக தொடர்க
+          </button>
+          <button type="button" onclick="saveUserProfile()" class="px-5 py-2.5 bg-primary hover:bg-primary-container text-on-primary rounded-xl text-xs font-bold shadow-md flex items-center gap-1.5 active:scale-95 transition-all">
+            <span>சேமித்து தொடங்குக (Save &amp; Continue)</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </dialog>
+
+  <!-- ================= MODAL: HOST DATA & ADMIN PORTAL (REQ 2 - FOR WEBSITE HOST) ================= -->
+  <dialog id="host-admin-modal" class="p-0 rounded-3xl border-0 bg-transparent backdrop:bg-black/70 backdrop:backdrop-blur-sm max-w-3xl w-full">
+    <div class="bg-surface-container-lowest rounded-3xl p-6 md:p-8 border border-surface-container shadow-2xl space-y-4 max-h-[85vh] overflow-y-auto text-xs">
+      <div class="flex items-center justify-between border-b border-surface-container pb-3">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-2xl">admin_panel_settings</span>
+          <div>
+            <h3 class="font-headline-sm text-lg font-bold text-primary">ஹோஸ்ட் அட்மின் தரவு போர்டல் (Host Customer Leads &amp; Orders)</h3>
+            <span class="text-[11px] text-on-surface-variant">Saved Customer Records, Registrations &amp; Bulk Enquiries</span>
+          </div>
+        </div>
+        <button onclick="hostAdminModal.close()" class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center"><span class="material-symbols-outlined text-sm">close</span></button>
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        <button onclick="exportCustomersCsv()" class="px-3 py-2 bg-primary text-on-primary rounded-xl font-bold flex items-center gap-1.5 shadow">
+          <span class="material-symbols-outlined text-sm">file_download</span>
+          <span>வாடிக்கையாளர் தரவு எக்ஸ்போர்ட் (Export Customers CSV)</span>
+        </button>
+        <button onclick="exportOrdersCsv()" class="px-3 py-2 bg-secondary text-white rounded-xl font-bold flex items-center gap-1.5 shadow">
+          <span class="material-symbols-outlined text-sm">download_for_offline</span>
+          <span>ஆர்டர்கள் எக்ஸ்போர்ட் (Export Orders CSV)</span>
+        </button>
+      </div>
+
+      <!-- Customer Records Table -->
+      <div class="space-y-2">
+        <b class="text-on-surface uppercase text-[11px] block">பதிவு செய்த வாடிக்கையாளர்கள் (Registered Customers):</b>
+        <div class="overflow-x-auto border border-surface-container rounded-xl">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead class="bg-surface-container-low font-bold">
+              <tr>
+                <th class="p-2.5">பெயர்</th>
+                <th class="p-2.5">மொபைல்</th>
+                <th class="p-2.5">பகுதி &amp; பின்கோடு</th>
+                <th class="p-2.5">மின்னஞ்சல்</th>
+                <th class="p-2.5">தேதி</th>
+              </tr>
+            </thead>
+            <tbody id="host-customers-table" class="divide-y divide-surface-container"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Orders Records Table -->
+      <div class="space-y-2 pt-2">
+        <b class="text-on-surface uppercase text-[11px] block">சமீபத்திய ஆர்டர்கள் &amp; கல்யாண விசேஷ கோரிக்கைகள் (Orders &amp; Bulk Enquiries):</b>
+        <div class="overflow-x-auto border border-surface-container rounded-xl">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead class="bg-surface-container-low font-bold">
+              <tr>
+                <th class="p-2.5">ஆர்டர் ID</th>
+                <th class="p-2.5">வகை</th>
+                <th class="p-2.5">வாடிக்கையாளர்</th>
+                <th class="p-2.5">விவரம்</th>
+                <th class="p-2.5">தொகை</th>
+              </tr>
+            </thead>
+            <tbody id="host-orders-table" class="divide-y divide-surface-container"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ================= MODAL: VACATION MODE ================= -->
+  <dialog id="vacation-modal" class="p-0 rounded-3xl border-0 bg-transparent backdrop:bg-black/60 backdrop:backdrop-blur-sm max-w-md w-full">
+    <div class="bg-surface-container-lowest rounded-3xl p-6 border border-surface-container shadow-2xl space-y-4 text-xs">
+      <h3 class="font-bold text-sm text-on-surface">விடுமுறை தற்காலிக நிறுத்தம் (Vacation Pause)</h3>
+      <div class="space-y-2">
+        <label class="block font-semibold">நிறுத்தும் நாள்:</label>
+        <input type="date" class="w-full bg-surface-container-low p-2 rounded-xl border border-surface-container" value="2026-10-15">
+        <label class="block font-semibold mt-2">மீண்டும் துவங்கும் நாள்:</label>
+        <input type="date" class="w-full bg-surface-container-low p-2 rounded-xl border border-surface-container" value="2026-10-20">
+      </div>
+      <div class="flex justify-end gap-2 pt-2 border-t border-surface-container">
+        <button onclick="vacationModal.close()" class="px-4 py-2 bg-surface-container rounded-xl font-semibold">ரத்து</button>
+        <button onclick="confirmVacationPause()" class="px-4 py-2 bg-tertiary text-white rounded-xl font-bold">உறுதி செய்க</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ================= MODAL: ORDER SUCCESS ================= -->
+  <dialog id="success-modal" class="p-0 rounded-3xl border-0 bg-transparent backdrop:bg-black/60 backdrop:backdrop-blur-sm max-w-md w-full">
+    <div class="bg-surface-container-lowest rounded-3xl p-6 md:p-8 border border-surface-container shadow-2xl text-center space-y-4 text-xs">
+      <span class="material-symbols-outlined text-4xl text-primary">check_circle</span>
+      <h3 class="font-headline-md text-xl font-bold text-primary">ஆர்டர் உறுதியானது • ORDER CONFIRMED!</h3>
+      <p class="text-on-surface-variant">ஆர்டர் எண்: <b id="success-order-id" class="font-mono text-on-surface">#PB-84920</b></p>
+      <div class="bg-surface-container-low p-3 rounded-xl border border-surface-container text-left space-y-1">
+        <div class="flex justify-between"><span>முகவரி:</span><b id="success-address">Mandaveli</b></div>
+        <div class="flex justify-between"><span>கட்டணம்:</span><b id="success-payment-mode" class="text-primary">Cash on Delivery</b></div>
+        <div class="flex justify-between text-sm font-bold pt-1 border-t border-surface-container"><span>தொகை:</span><span id="success-amount" class="font-mono">₹140</span></div>
+      </div>
+      <div class="pt-2 flex flex-col gap-2">
+        <button onclick="successModal.close(); showTab('tracking-view');" class="w-full py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-1.5">
+          <span class="material-symbols-outlined text-sm">map</span>
+          <span>Google Map-ல் கண்காணிக்கவும்</span>
+        </button>
+        <button onclick="successModal.close(); showTab('schedule-view');" class="w-full py-2.5 bg-surface-container rounded-xl font-bold">
+          பில் &amp; அட்டவணை பார்க்க
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ================= CLIENT-SIDE CORE JAVASCRIPT ================= -->
+  <script>
+    // Host Master Data Storage (REQ 2 - Stored in localStorage for Host's use)
+    let hostCustomers = JSON.parse(localStorage.getItem('pb_host_customers') || '[]');
+    let hostOrders = JSON.parse(localStorage.getItem('pb_host_orders') || '[]');
+
+    // Seed default customer if empty
+    if (hostCustomers.length === 0) {
+      hostCustomers.push({
+        name: 'கவிதா மகாலிங்கம் (Kavitha Mahalingam)',
+        phone: '+91 81228 02067',
+        locality: 'Mandaveli, Chennai',
+        pincode: '600028',
+        email: 'kavitha.mami600028@gmail.com',
+        created_at: new Date().toLocaleDateString('ta-IN')
+      });
+      localStorage.setItem('pb_host_customers', JSON.stringify(hostCustomers));
+    }
+
+    // Current User Profile State
+    const savedProf = localStorage.getItem('pb_user_profile');
+    let userProfile = savedProf ? JSON.parse(savedProf) : { ...hostCustomers[0] };
+
+    // Product Variants (Real-Time Pricing)
+    let selectedVariants = {
+      srinivasa: { size: '1L', price: 46, mrp: 48, name: 'Srinivasa Toned Milk (1 L)', brand: 'Srinivasa' },
+      arokya: { size: '1L', price: 48, mrp: 50, name: 'Arokya Everyday Toned (1 L)', brand: 'Arokya' },
+      aavin: { size: '1L', price: 42, mrp: 44, name: 'Aavin Green Magic (1 L)', brand: 'Aavin' },
+      pasumbaal: { size: '1L', price: 85, mrp: 95, name: 'Pasumbaal Pure A2 Cow Milk (1 L)', brand: 'Pasumbaal' },
+      curd: { size: '500g', price: 50, mrp: 55, name: 'Earthen Pot Desi Curd (500 g)', brand: 'Pasumbaal' },
+      ghee: { size: '500ml', price: 580, mrp: 650, name: 'Pure A2 Bilona Cow Ghee (500 ml)', brand: 'Pasumbaal' },
+      paneer: { size: '200g', price: 95, mrp: 110, name: 'Fresh Farm Malai Paneer (200 g)', brand: 'Pasumbaal' },
+      cheese: { size: '200g', price: 120, mrp: 140, name: 'Fresh Artisanal Cheese (200 g)', brand: 'Pasumbaal' }
+    };
+
+    // Cart State
+    let cart = [
+      { id: 'srinivasa-1L', name: 'Srinivasa Toned Milk (1 L)', price: 46, brand: 'Srinivasa', qty: 1 },
+      { id: 'arokya-1L', name: 'Arokya Everyday Toned (1 L)', price: 48, brand: 'Arokya', qty: 1 },
+      { id: 'curd-500g', name: 'Earthen Pot Desi Curd (500 g)', price: 50, brand: 'Pasumbaal', qty: 1 }
+    ];
+
+    let appliedDiscount = 0;
+    let profileModal, vacationModal, successModal, hostAdminModal;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      profileModal = document.getElementById('profile-modal');
+      vacationModal = document.getElementById('vacation-modal');
+      successModal = document.getElementById('success-modal');
+      hostAdminModal = document.getElementById('host-admin-modal');
+
+      syncProfileUi();
+      updateCartUi();
+      startCountdownTimer();
+      calculateComprehensiveBulk();
+      renderHostTables();
+
+      // Automatically ask for customer input interface first when opening website
+      setTimeout(() => {
+        openProfileModal(true);
+      }, 400);
+    });
+
+    // 1. Navigation
+    function showTab(tabId) {
+      const views = ['storefront', 'schedule', 'bulk', 'offers', 'tracking', 'checkout'];
+      const target = tabId.replace('-view', '');
+
+      views.forEach(v => {
+        const el = document.getElementById('view-' + v);
+        if (el) el.classList.add('hidden');
+        const btn = document.getElementById('nav-btn-' + v);
+        if (btn) {
+          btn.classList.remove('active-nav-tab', 'bg-primary', 'text-on-primary');
+          btn.classList.add('text-on-surface-variant');
+        }
+      });
+
+      const activeView = document.getElementById('view-' + target);
+      if (activeView) activeView.classList.remove('hidden');
+
+      const activeBtn = document.getElementById('nav-btn-' + target);
+      if (activeBtn) {
+        activeBtn.classList.add('active-nav-tab', 'bg-primary', 'text-on-primary');
+        activeBtn.classList.remove('text-on-surface-variant');
+      }
+
+      window.scrollTo({ top: 100, behavior: 'smooth' });
+    }
+
+    function scrollToSection(id) {
+      showTab('storefront');
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 2. User Profile, Onboarding & Host Storage (REQ 1 & 2)
+    function openProfileModal(isOnboarding = false) {
+      const cleanPhone = (userProfile.phone || '').replace(/^\+91\s*/, '');
+      const nameInput = document.getElementById('prof-name-input');
+      const phoneInput = document.getElementById('prof-phone-input');
+      const locInput = document.getElementById('prof-location-input');
+      const pinInput = document.getElementById('prof-pincode-input');
+      const emailInput = document.getElementById('prof-email-input');
+
+      if (nameInput) nameInput.value = userProfile.name || '';
+      if (phoneInput) phoneInput.value = cleanPhone || '';
+      if (locInput) locInput.value = userProfile.locality || '';
+      if (pinInput) pinInput.value = userProfile.pincode || '';
+      if (emailInput) emailInput.value = userProfile.email || '';
+      validateModalPincode(userProfile.pincode);
+      if (profileModal) {
+        profileModal.showModal();
+      }
+    }
+
+    function quickFillLocality(locality, pincode) {
+      const locInput = document.getElementById('prof-location-input');
+      const pinInput = document.getElementById('prof-pincode-input');
+      if (locInput) locInput.value = locality;
+      if (pinInput) pinInput.value = pincode;
+      validateModalPincode(pincode);
+    }
+
+    function validateModalPincode(code) {
+      const statusEl = document.getElementById('modal-pincode-status');
+      if (!statusEl) return;
+      const clean = (code || '').trim();
+      if (clean.startsWith('600')) {
+        statusEl.className = 'mt-1.5 text-[11px] flex items-center gap-1 font-semibold text-emerald-800';
+        statusEl.innerHTML = '<span class="material-symbols-outlined text-xs text-primary">check_circle</span> <span>சென்னை மண்டலம் (Chennai Region) • காலை 5:30 AM வாசல் விநியோகம் உண்டு.</span>';
+      } else if (clean.startsWith('602') || clean.startsWith('601')) {
+        statusEl.className = 'mt-1.5 text-[11px] flex items-center gap-1 font-semibold text-emerald-800';
+        statusEl.innerHTML = '<span class="material-symbols-outlined text-xs text-primary">check_circle</span> <span>திருவள்ளூர் மாவட்டம் (Thiruvallur District) • காலை 5:30 AM வாசல் விநியோகம் உண்டு.</span>';
+      } else if (clean.length >= 3) {
+        statusEl.className = 'mt-1.5 text-[11px] flex items-center gap-1 font-semibold text-amber-800';
+        statusEl.innerHTML = '<span class="material-symbols-outlined text-xs text-amber-600">info</span> <span>சென்னை & திருவள்ளூர் பின்கோடுகள் (600xxx, 602xxx, 601xxx) பரிந்துரைக்கப்படுகிறது.</span>';
+      } else {
+        statusEl.className = 'mt-1.5 text-[11px] flex items-center gap-1 font-semibold text-outline';
+        statusEl.innerHTML = '<span>6 இலக்க பின்கோடை உள்ளிடவும்.</span>';
+      }
+    }
+
+    function fillDemoProfile() {
+      document.getElementById('prof-name-input').value = 'கவிதா மகாலிங்கம் (Kavitha Mahalingam)';
+      document.getElementById('prof-phone-input').value = '8122802067';
+      document.getElementById('prof-location-input').value = 'Mandaveli, Chennai';
+      document.getElementById('prof-pincode-input').value = '600028';
+      document.getElementById('prof-email-input').value = 'kavitha.mami600028@gmail.com';
+      validateModalPincode('600028');
+    }
+
+    function saveUserProfile() {
+      const name = document.getElementById('prof-name-input').value.trim();
+      let phone = document.getElementById('prof-phone-input').value.trim();
+      const locality = document.getElementById('prof-location-input').value.trim();
+      const pincode = document.getElementById('prof-pincode-input').value.trim();
+      const email = document.getElementById('prof-email-input').value.trim();
+
+      if (!name) {
+        alert('தயவுசெய்து உங்கள் பெயரை உள்ளிடவும் (Please enter your full name).');
+        document.getElementById('prof-name-input').focus();
+        return;
+      }
+      if (!phone || phone.replace(/\D/g, '').length < 10) {
+        alert('தயவுசெய்து 10 இலக்க மொபைல் எண்ணை உள்ளிடவும் (Please enter a valid 10-digit mobile number).');
+        document.getElementById('prof-phone-input').focus();
+        return;
+      }
+      if (!pincode || pincode.length !== 6) {
+        alert('தயவுசெய்து 6 இலக்க பின்கோடை உள்ளிடவும் (Please enter 6-digit pincode).');
+        document.getElementById('prof-pincode-input').focus();
+        return;
+      }
+
+      if (!phone.startsWith('+91')) {
+        phone = '+91 ' + phone.replace(/^\+91\s*/, '');
+      }
+
+      userProfile.name = name;
+      userProfile.phone = phone;
+      userProfile.locality = locality || 'Chennai';
+      userProfile.pincode = pincode;
+      userProfile.email = email || `${phone.replace(/\D/g, '')}@paalbazaar.com`;
+      userProfile.created_at = new Date().toLocaleDateString('ta-IN');
+
+      // Save to Host Database (REQ 2 - website host use)
+      const idx = hostCustomers.findIndex(c => c.phone === userProfile.phone);
+      if (idx >= 0) {
+        hostCustomers[idx] = { ...userProfile };
+      } else {
+        hostCustomers.unshift({ ...userProfile });
+      }
+      localStorage.setItem('pb_host_customers', JSON.stringify(hostCustomers));
+      localStorage.setItem('pb_user_profile', JSON.stringify(userProfile));
+
+      syncProfileUi();
+      renderHostTables();
+      profileModal.close();
+
+      showWelcomeToast(`வணக்கம் ${userProfile.name}!`, `${userProfile.locality} (${userProfile.pincode}) முகவரியில் உங்கள் பால் பஜார் கணக்கு வெற்றிகரமாக பதிவு செய்யப்பட்டது.`);
+    }
+
+    function showWelcomeToast(title, msg) {
+      const toast = document.getElementById('welcome-toast');
+      if (!toast) return;
+      document.getElementById('toast-title').textContent = title;
+      document.getElementById('toast-msg').textContent = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        dismissToast();
+      }, 6000);
+    }
+
+    function dismissToast() {
+      const toast = document.getElementById('welcome-toast');
+      if (toast) toast.classList.add('hidden');
+    }
+
+    function syncProfileUi() {
+      const shortName = userProfile.name.split(' ')[0] || userProfile.name;
+      const words = userProfile.name.trim().split(/\s+/).filter(w => !w.startsWith('('));
+      let initials = 'PB';
+      if (words.length >= 2) {
+        initials = (words[0][0] + words[1][0]).toUpperCase();
+      } else if (words.length === 1 && words[0].length > 0) {
+        initials = words[0].substring(0, 2).toUpperCase();
+      }
+
+      // 1. Top Bar & Main Header Avatars & Subtitles
+      const avatarEl = document.getElementById('header-user-avatar');
+      if (avatarEl) avatarEl.textContent = initials;
+      const schedAvatar = document.getElementById('sched-user-avatar');
+      if (schedAvatar) schedAvatar.textContent = initials;
+
+      const headName = document.getElementById('header-user-name');
+      if (headName) headName.textContent = userProfile.name;
+      const headSub = document.getElementById('header-user-sub');
+      if (headSub) headSub.textContent = `${userProfile.phone} • ${userProfile.pincode}`;
+      const topPill = document.getElementById('top-user-pill');
+      if (topPill) topPill.textContent = `${shortName} (${userProfile.pincode})`;
+
+      // 2. Main Page Location Switcher & PINCODE CHECKER (AUTO-FILL PINCODE)
+      const locDisplay = document.getElementById('current-locality-display');
+      if (locDisplay) locDisplay.textContent = `சென்னை / ${userProfile.locality}`;
+      const pinDisplay = document.getElementById('current-pincode-display');
+      if (pinDisplay) pinDisplay.textContent = `${userProfile.pincode} - ${userProfile.locality}`;
+
+      const pincodeInp = document.getElementById('pincode-input');
+      if (pincodeInp) {
+        pincodeInp.value = userProfile.pincode;
+        checkPincode(); // Automatically checks and displays live serviceability on main page!
+      }
+
+      // 3. 7-Day Delivery Schedule & Detailed Bill Page
+      const schedGreet = document.getElementById('sched-greeting');
+      if (schedGreet) schedGreet.textContent = `வணக்கம் ${userProfile.name}!`;
+      const schedPin = document.getElementById('sched-pincode-pill');
+      if (schedPin) schedPin.textContent = `${userProfile.locality} ${userProfile.pincode}`;
+      const billCust = document.getElementById('bill-cust-name');
+      if (billCust) billCust.textContent = `${userProfile.name} (${userProfile.pincode})`;
+      const billPhone = document.getElementById('bill-cust-phone');
+      if (billPhone) billPhone.textContent = userProfile.phone;
+
+      // 4. Function & Kalyana Bulk Orders Page (AUTO-FILL USER & VENUE DETAILS)
+      const bulkName = document.getElementById('bulk-cust-name');
+      if (bulkName) bulkName.value = userProfile.name;
+      const bulkPhone = document.getElementById('bulk-cust-phone');
+      if (bulkPhone) bulkPhone.value = userProfile.phone;
+      const bulkVenue = document.getElementById('bulk-cust-venue');
+      if (bulkVenue) bulkVenue.value = userProfile.locality;
+      const bulkPin = document.getElementById('bulk-cust-pincode');
+      if (bulkPin) bulkPin.value = userProfile.pincode;
+
+      // 5. Google Maps Live Tracking Page (AUTO-FILL DESTINATION & ROUTE)
+      const trackName = document.getElementById('tracking-cust-name');
+      if (trackName) trackName.textContent = userProfile.name;
+      const trackLoc = document.getElementById('tracking-cust-location');
+      if (trackLoc) trackLoc.textContent = `${userProfile.locality} (${userProfile.pincode})`;
+      updateGoogleMapTarget(userProfile.locality, userProfile.pincode);
+
+      // 6. Fast COD & UPI Checkout Page (AUTO-FILL USER & ADDRESS DETAILS)
+      const chName = document.getElementById('checkout-name');
+      if (chName) chName.value = userProfile.name;
+      const chPhone = document.getElementById('checkout-phone');
+      if (chPhone) chPhone.value = userProfile.phone;
+      const chPin = document.getElementById('checkout-pincode');
+      if (chPin) chPin.value = userProfile.pincode;
+      const chAddr = document.getElementById('checkout-address');
+      if (chAddr) chAddr.value = `${userProfile.locality}, Pincode: ${userProfile.pincode}`;
+
+      const chLocSelect = document.getElementById('checkout-locality-select');
+      if (chLocSelect) {
+        let found = false;
+        for (let opt of chLocSelect.options) {
+          if (opt.value.includes(userProfile.pincode) || opt.value.toLowerCase().includes(userProfile.locality.toLowerCase())) {
+            opt.selected = true;
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          const newOpt = document.createElement('option');
+          newOpt.value = `${userProfile.locality} ${userProfile.pincode}`;
+          newOpt.textContent = `${userProfile.locality} (${userProfile.pincode})`;
+          newOpt.selected = true;
+          chLocSelect.appendChild(newOpt);
+        }
+      }
+
+      // Re-calculate bulk order summary with customer data
+      calculateComprehensiveBulk();
+    }
+
+    // 3. Google Maps Dynamic Embed (REQ 1)
+    function updateGoogleMapTarget(locality, pincode) {
+      const frame = document.getElementById('google-maps-frame');
+      const title = document.getElementById('map-target-title');
+      const link = document.getElementById('gmaps-external-link');
+      if (frame && locality) {
+        const query = encodeURIComponent(`${locality} Chennai Tamil Nadu ${pincode}`);
+        frame.src = `https://maps.google.com/maps?q=${query}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
+        if (title) title.textContent = `Google Maps விநியோக வழித்தடம்: ${locality} (${pincode})`;
+        if (link) link.href = `https://www.google.com/maps/dir/?api=1&origin=Koyambedu+Chennai&destination=${query}`;
+      }
+    }
+
+    // 4. Host Admin Portal & CSV Export (REQ 2)
+    function openHostAdminModal() {
+      renderHostTables();
+      hostAdminModal.showModal();
+    }
+
+    function renderHostTables() {
+      const custTable = document.getElementById('host-customers-table');
+      if (custTable) {
+        custTable.innerHTML = hostCustomers.map(c => `
+          <tr class="hover:bg-surface-container-low">
+            <td class="p-2.5 font-bold text-on-surface">${c.name}</td>
+            <td class="p-2.5 font-mono text-primary">${c.phone}</td>
+            <td class="p-2.5">${c.locality} (${c.pincode})</td>
+            <td class="p-2.5 font-mono">${c.email}</td>
+            <td class="p-2.5 text-outline">${c.created_at || 'Today'}</td>
+          </tr>
+        `).join('');
+      }
+
+      const ordTable = document.getElementById('host-orders-table');
+      if (ordTable) {
+        if (hostOrders.length === 0) {
+          ordTable.innerHTML = `<tr><td colspan="5" class="p-3 text-center text-outline">இன்னும் ஆர்டர்கள் பதிவாகவில்லை.</td></tr>`;
+        } else {
+          ordTable.innerHTML = hostOrders.map(o => `
+            <tr class="hover:bg-surface-container-low">
+              <td class="p-2.5 font-mono font-bold text-primary">${o.id}</td>
+              <td class="p-2.5">${o.type}</td>
+              <td class="p-2.5 font-bold">${o.customer}</td>
+              <td class="p-2.5">${o.details}</td>
+              <td class="p-2.5 font-mono font-bold text-primary">${o.amount}</td>
+            </tr>
+          `).join('');
+        }
+      }
+    }
+
+    function exportCustomersCsv() {
+      let csv = "Name,Mobile Number,Locality,Pincode,Email ID,Registered Date\n";
+      hostCustomers.forEach(c => {
+        csv += `"${c.name}","${c.phone}","${c.locality}","${c.pincode}","${c.email}","${c.created_at || ''}"\n`;
+      });
+      triggerDownload(csv, "Paal-Bazaar-Customer-Leads.csv", "text/csv");
+    }
+
+    function exportOrdersCsv() {
+      let csv = "Order ID,Order Type,Customer Name,Phone,Details,Total Amount,Date\n";
+      hostOrders.forEach(o => {
+        csv += `"${o.id}","${o.type}","${o.customer}","${o.phone}","${o.details}","${o.amount}","${o.date}"\n`;
+      });
+      triggerDownload(csv, "Paal-Bazaar-Orders-Data.csv", "text/csv");
+    }
+
+    function triggerDownload(content, filename, mime) {
+      const blob = new Blob([content], { type: mime });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // 5. Native PDF Bill Download on Mobile & Laptop (REQ 4)
+    function downloadBillPdf() {
+      try {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Header
+        doc.setFontSize(18);
+        doc.setTextColor(0, 84, 64); // Forest Teal
+        doc.text("PAAL BAZAAR - TAX INVOICE", 14, 20);
+
+        doc.setFontSize(10);
+        doc.setTextColor(100);
+        doc.text("Chennai & Thiruvallur Fresh Dairy Marketplace", 14, 26);
+        doc.text("WhatsApp / Support: +91 81228 02067 | FSSAI: 12423008000123", 14, 31);
+        doc.line(14, 34, 196, 34);
+
+        // Customer Details
+        doc.setFontSize(11);
+        doc.setTextColor(33);
+        doc.text(`Customer: ${userProfile.name}`, 14, 42);
+        doc.text(`Mobile: ${userProfile.phone}`, 14, 48);
+        doc.text(`Location: ${userProfile.locality} - ${userProfile.pincode}`, 14, 54);
+        doc.text(`Bill No: PB-INV-${Math.floor(10000 + Math.random() * 90000)}`, 130, 42);
+        doc.text(`Date: ${new Date().toLocaleDateString('en-IN')}`, 130, 48);
+        doc.text(`Status: CONFIRMED / DOORSTEP DROP`, 130, 54);
+        doc.line(14, 58, 196, 58);
+
+        // Table Header
+        doc.setFillColor(245, 235, 228);
+        doc.rect(14, 62, 182, 8, 'F');
+        doc.setFontSize(10);
+        doc.setTextColor(0, 84, 64);
+        doc.text("Item Description", 18, 67);
+        doc.text("Days", 90, 67);
+        doc.text("Qty/Day", 115, 67);
+        doc.text("Rate", 145, 67);
+        doc.text("Amount", 175, 67);
+
+        // Rows
+        doc.setTextColor(40);
+        doc.text("Srinivasa Toned Milk (1.5L Daily)", 18, 76);
+        doc.text("7 Days", 90, 76);
+        doc.text("1.5 L", 115, 76);
+        doc.text("Rs. 46/L", 145, 76);
+        doc.text("Rs. 483.00", 175, 76);
+
+        doc.text("Earthen Pot Desi Curd (Sat Delivery)", 18, 84);
+        doc.text("1 Day", 90, 84);
+        doc.text("500 g", 115, 84);
+        doc.text("Rs. 50", 145, 84);
+        doc.text("Rs. 50.00", 175, 84);
+
+        doc.text("Sunday Special Additional Milk (0.5L)", 18, 92);
+        doc.text("1 Day", 90, 92);
+        doc.text("0.5 L", 115, 92);
+        doc.text("Rs. 46/L", 145, 92);
+        doc.text("Rs. 23.00", 175, 92);
+
+        doc.line(14, 98, 196, 98);
+
+        // Bill Summary
+        doc.text("Gross Subtotal:", 130, 106);
+        doc.text("Rs. 556.00", 175, 106);
+
+        doc.setTextColor(0, 100, 50);
+        doc.text("Pokkisham Coins Discount:", 130, 113);
+        doc.text("- Rs. 50.00", 175, 113);
+
+        doc.setTextColor(40);
+        doc.text("Early Morning 5:30 AM Delivery:", 130, 120);
+        doc.text("FREE (Rs. 0)", 175, 120);
+
+        doc.setFontSize(12);
+        doc.setTextColor(0, 84, 64);
+        doc.text("NET PAYABLE TOTAL:", 130, 129);
+        doc.text("Rs. 506.00", 175, 129);
+
+        // Footer Note
+        doc.setFontSize(9);
+        doc.setTextColor(120);
+        doc.text("Thank you for choosing Paal Bazaar! For queries WhatsApp: +91 81228 02067", 14, 145);
+        doc.text("Delivered cold-chain fresh across Chennai & Thiruvallur doorsteps.", 14, 150);
+
+        // Trigger Mobile / Device Download
+        doc.save(`Paal-Bazaar-Invoice-PB-${Math.floor(1000 + Math.random() * 9000)}.pdf`);
+      } catch (err) {
+        console.error(err);
+        window.print();
+      }
+    }
+
+    // 6. Comprehensive Bulk Orders Calculation (REQ 6)
+    function calculateComprehensiveBulk() {
+      const milk = parseInt(document.getElementById('bulk-qty-milk')?.value) || 0;
+      const curd = parseInt(document.getElementById('bulk-qty-curd')?.value) || 0;
+      const ghee = parseInt(document.getElementById('bulk-qty-ghee')?.value) || 0;
+      const paneer = parseInt(document.getElementById('bulk-qty-paneer')?.value) || 0;
+      const cheese = parseInt(document.getElementById('bulk-qty-cheese')?.value) || 0;
+      const mor = parseInt(document.getElementById('bulk-qty-mor')?.value) || 0;
+
+      const retailTotal = (milk * 85) + (curd * 95) + (ghee * 1120) + (paneer * 420) + (cheese * 540) + (mor * 40);
+      const discount = Math.round(retailTotal * 0.20); // 20% bulk bundle off
+      const net = retailTotal - discount;
+
+      document.getElementById('bulk-sum-retail').textContent = `₹${retailTotal.toLocaleString('en-IN')}`;
+      document.getElementById('bulk-sum-discount').textContent = `- ₹${discount.toLocaleString('en-IN')}`;
+      document.getElementById('bulk-sum-net').textContent = `₹${net.toLocaleString('en-IN')}`;
+
+      // Update WhatsApp Quote Link
+      const custName = document.getElementById('bulk-cust-name')?.value || userProfile.name;
+      const custPhone = document.getElementById('bulk-cust-phone')?.value || userProfile.phone;
+      const venue = document.getElementById('bulk-cust-venue')?.value || userProfile.locality;
+      const pin = document.getElementById('bulk-cust-pincode')?.value || userProfile.pincode;
+
+      const text = encodeURIComponent(`Vanakkam Paal Bazaar! I want to book a Kalyana Bulk Order:
+- Organizer: ${custName} (${custPhone})
+- Venue: ${venue} - Pincode: ${pin}
+- Event: ${document.getElementById('bulk-event-type')?.value}
+- Date: ${document.getElementById('bulk-event-date')?.value}
+- Milk: ${milk} L, Curd: ${curd} Kg, Ghee: ${ghee} L, Paneer: ${paneer} Kg, Cheese: ${cheese} Kg, Mor: ${mor} L
+- Estimated Net Total: Rs. ${net.toLocaleString('en-IN')}
+Please connect with your Wedding Coordinator.`);
+      document.getElementById('bulk-whatsapp-link').href = `https://wa.me/918122802067?text=${text}`;
+    }
+
+    function submitBulkOrderToHost() {
+      const orderId = '#BLK-' + Math.floor(10000 + Math.random() * 90000);
+      const net = document.getElementById('bulk-sum-net').textContent;
+      const custName = document.getElementById('bulk-cust-name')?.value || userProfile.name;
+      const custPhone = document.getElementById('bulk-cust-phone')?.value || userProfile.phone;
+      const venue = document.getElementById('bulk-cust-venue')?.value || userProfile.locality;
+      const pin = document.getElementById('bulk-cust-pincode')?.value || userProfile.pincode;
+
+      const details = `Milk: ${document.getElementById('bulk-qty-milk').value}L, Curd: ${document.getElementById('bulk-qty-curd').value}kg, Ghee: ${document.getElementById('bulk-qty-ghee').value}L, Paneer: ${document.getElementById('bulk-qty-paneer').value}kg, Cheese: ${document.getElementById('bulk-qty-cheese').value}kg [Venue: ${venue} - ${pin}]`;
+
+      hostOrders.unshift({
+        id: orderId,
+        type: 'Kalyana / Function Bulk',
+        customer: custName,
+        phone: custPhone,
+        details: details,
+        amount: net,
+        date: new Date().toLocaleDateString('ta-IN')
+      });
+      localStorage.setItem('pb_host_orders', JSON.stringify(hostOrders));
+      renderHostTables();
+
+      alert(`உங்கள் விசேஷ ஆர்டர் ${orderId} (${custName}, ${venue} - ${pin}) வெற்றிகரமாக பெறப்பட்டது! விவரங்கள் ஹோஸ்ட் டேட்டாபேஸில் சேமிக்கப்பட்டன. எங்களது ஒருங்கிணைப்பாளர் (+91 81228 02067) உங்களை அழைப்பார்.`);
+    }
+
+    // 7. Product Variant Selector (500ml vs 1L, etc.)
+    function setProductVariant(prodKey, size, price, mrp) {
+      document.querySelectorAll(`.variant-btn-${prodKey}`).forEach(btn => {
+        btn.className = `variant-btn-${prodKey} px-2 py-1 rounded text-xs font-bold border border-surface-container bg-surface-container text-on-surface-variant`;
+      });
+      event.target.className = `variant-btn-${prodKey} active-variant px-2 py-1 rounded text-xs font-bold border border-primary bg-primary text-on-primary`;
+
+      document.getElementById(`price-${prodKey}`).textContent = `₹${price}`;
+      document.getElementById(`mrp-${prodKey}`).textContent = `₹${mrp}`;
+
+      selectedVariants[prodKey] = {
+        size: size,
+        price: price,
+        mrp: mrp,
+        name: `${prodKey.toUpperCase()} (${size})`,
+        brand: prodKey.toUpperCase()
+      };
+    }
+
+    function addCurrentVariantToCart(prodKey) {
+      const v = selectedVariants[prodKey];
+      if (!v) return;
+      addToCart(`${prodKey}-${v.size}`, v.name, v.price, v.brand);
+    }
+
+    // 8. Cart Management
+    function openCartDrawer() {
+      document.getElementById('cart-drawer-backdrop').classList.remove('hidden');
+      document.getElementById('cart-drawer').classList.remove('translate-x-full');
+      document.body.classList.add('cart-drawer-open');
+    }
+
+    function closeCartDrawer() {
+      document.getElementById('cart-drawer-backdrop').classList.add('hidden');
+      document.getElementById('cart-drawer').classList.add('translate-x-full');
+      document.body.classList.remove('cart-drawer-open');
+    }
+
+    function addToCart(id, name, price, brand) {
+      const existing = cart.find(i => i.id === id);
+      if (existing) existing.qty++;
+      else cart.push({ id, name, price, brand, qty: 1 });
+      updateCartUi();
+      openCartDrawer();
+    }
+
+    function adjustQty(id, delta) {
+      const item = cart.find(i => i.id === id);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+      updateCartUi();
+    }
+
+    function updateCartUi() {
+      const totalItems = cart.reduce((acc, i) => acc + i.qty, 0);
+      const subtotal = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
+      const netTotal = Math.max(0, subtotal - appliedDiscount);
+
+      document.getElementById('header-cart-summary').textContent = `₹${netTotal} • ${totalItems} Items`;
+      document.getElementById('drawer-cart-subtitle').textContent = `${totalItems} பொருட்கள் உள்ளன`;
+
+      const drawerList = document.getElementById('drawer-items-list');
+      if (drawerList) {
+        if (cart.length === 0) {
+          drawerList.innerHTML = `<div class="text-center py-8 text-outline">கூடை காலியாக உள்ளது.</div>`;
+        } else {
+          drawerList.innerHTML = cart.map(item => `
+            <div class="bg-surface-container-low p-2.5 rounded-xl border border-surface-container flex items-center justify-between">
+              <div>
+                <b class="text-xs text-on-surface block">${item.name}</b>
+                <span class="text-xs font-mono text-primary">₹${item.price} each</span>
+              </div>
+              <div class="flex items-center gap-2 bg-white px-2 py-0.5 rounded border border-surface-container">
+                <button onclick="adjustQty('${item.id}', -1)" class="font-bold text-sm">-</button>
+                <span class="font-mono font-bold text-xs">${item.qty}</span>
+                <button onclick="adjustQty('${item.id}', 1)" class="font-bold text-sm">+</button>
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+
+      document.getElementById('drawer-subtotal').textContent = `₹${subtotal}`;
+      document.getElementById('drawer-discount').textContent = `- ₹${appliedDiscount}`;
+      document.getElementById('drawer-total').textContent = `₹${netTotal}`;
+
+      const checkoutList = document.getElementById('checkout-items-list');
+      if (checkoutList) {
+        checkoutList.innerHTML = cart.map(item => `
+          <div class="flex items-center justify-between py-1">
+            <span>${item.name} (x${item.qty})</span>
+            <span class="font-mono font-bold">₹${item.price * item.qty}</span>
+          </div>
+        `).join('');
+      }
+      document.getElementById('checkout-subtotal').textContent = `₹${subtotal}`;
+      document.getElementById('checkout-discount').textContent = `- ₹${appliedDiscount}`;
+      document.getElementById('checkout-total').textContent = `₹${netTotal}`;
+    }
+
+    function goToCheckoutFromCart() {
+      closeCartDrawer();
+      showTab('checkout-view');
+    }
+
+    function placeOrder() {
+      const orderId = '#PB-' + Math.floor(10000 + Math.random() * 90000);
+      const name = document.getElementById('checkout-name')?.value || userProfile.name;
+      const phone = document.getElementById('checkout-phone')?.value || userProfile.phone;
+      const pin = document.getElementById('checkout-pincode')?.value || userProfile.pincode;
+      const street = document.getElementById('checkout-address')?.value || userProfile.locality;
+      const locality = document.getElementById('checkout-locality-select')?.value || `${userProfile.locality} (${pin})`;
+      const fullAddr = `${street}, ${locality}`;
+      const netTotal = document.getElementById('checkout-total').textContent;
+
+      document.getElementById('success-address').textContent = `${name} (${phone}) • ${fullAddr}`;
+      document.getElementById('success-amount').textContent = netTotal;
+      document.getElementById('success-order-id').textContent = orderId;
+
+      // Save Order into Host Database (REQ 2)
+      hostOrders.unshift({
+        id: orderId,
+        type: 'Daily Delivery',
+        customer: name,
+        phone: phone,
+        details: cart.map(i => `${i.name} (x${i.qty})`).join(', ') + ` [Address: ${fullAddr}]`,
+        amount: netTotal,
+        date: new Date().toLocaleDateString('ta-IN')
+      });
+      localStorage.setItem('pb_host_orders', JSON.stringify(hostOrders));
+      renderHostTables();
+
+      successModal.showModal();
+    }
+
+    // 9. All Chennai & Thiruvallur Pincodes (REQ 7)
+    function checkPincode() {
+      const code = document.getElementById('pincode-input')?.value.trim();
+      const res = document.getElementById('pincode-result');
+      if (!res || !code) return;
+      
+      const isChennai = code.startsWith('600');
+      const isThiruvallur = code.startsWith('602') || code.startsWith('601');
+
+      if (isChennai || isThiruvallur) {
+        const distName = isThiruvallur ? "திருவள்ளூர் மாவட்டம் (Thiruvallur District)" : "சென்னை மண்டலம் (Chennai District)";
+        res.className = 'p-2.5 rounded-xl bg-primary-fixed/40 text-xs font-bold text-on-primary-fixed flex items-center gap-2';
+        res.innerHTML = `
+          <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+          <span>மகிழ்ச்சியான செய்தி! பின்கோடு ${code} [${distName}] பகுதியில் காலை 5:00 - 7:00 AM வாசல் விநியோகம் நடப்பில் உள்ளது.</span>
+        `;
+        const loc = (userProfile.pincode === code && userProfile.locality) ? userProfile.locality : distName;
+        updateGoogleMapTarget(loc, code);
+      } else {
+        res.className = 'p-2.5 rounded-xl bg-amber-50 text-xs font-bold text-amber-900 flex items-center gap-2 border border-amber-300';
+        res.innerHTML = `
+          <span class="material-symbols-outlined text-amber-700 text-sm">info</span>
+          <span>பின்கோடு ${code} விரைவில் தொடங்கப்பட உள்ளது. WhatsApp-ல் தொடர்பு கொள்ளவும்: 8122802067</span>
+        `;
+      }
+    }
+
+    function toggleLocalityMenu() {
+      document.getElementById('locality-dropdown').classList.toggle('hidden');
+    }
+
+    function setLocality(name, pincode) {
+      document.getElementById('current-locality-display').textContent = `சென்னை / ${name}`;
+      document.getElementById('current-pincode-display').textContent = `${pincode} - ${name}`;
+      document.getElementById('locality-dropdown').classList.add('hidden');
+      userProfile.locality = name;
+      userProfile.pincode = pincode;
+      syncProfileUi();
+    }
+
+    // 10. Filter & Search
+    function filterProducts(cat) {
+      document.querySelectorAll('.cat-pill').forEach(p => p.className = 'cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-surface-container text-on-surface-variant');
+      event.target.className = 'cat-pill active-cat px-3 py-1.5 rounded-lg text-xs font-bold bg-primary text-on-primary';
+      document.querySelectorAll('.product-card').forEach(c => {
+        c.classList.toggle('hidden', cat !== 'all' && c.dataset.category !== cat);
+      });
+    }
+
+    function handleLiveSearch(query) {
+      const q = query.toLowerCase().trim();
+      document.querySelectorAll('.product-card').forEach(c => {
+        const match = (c.dataset.title || '').toLowerCase().includes(q) || (c.dataset.brand || '').toLowerCase().includes(q);
+        c.classList.toggle('hidden', !match && q !== '');
+      });
+    }
+
+    // 11. Countdown Timer to 10 PM
+    function startCountdownTimer() {
+      function update() {
+        const now = new Date();
+        const cutoff = new Date();
+        cutoff.setHours(22, 0, 0, 0);
+        let diff = cutoff - now;
+        if (diff < 0) diff += 24 * 60 * 60 * 1000;
+        const h = String(Math.floor(diff / (1000 * 60 * 60))).padStart(2, '0');
+        const m = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+        const s = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+        const el = document.getElementById('countdown-timer');
+        if (el) el.textContent = `${h}:${m}:${s}`;
+      }
+      update();
+      setInterval(update, 1000);
+    }
+
+    function openVacationModal() { vacationModal.showModal(); }
+    function confirmVacationPause() {
+      vacationModal.close();
+      alert('விடுமுறை தற்காலிக நிறுத்தம் ஏற்றுக்கொள்ளப்பட்டது.');
+    }
+    function toggleLangMenu() { document.getElementById('lang-menu').classList.toggle('hidden'); }
+    function setLanguage(l) {
+      document.getElementById('lang-menu').classList.add('hidden');
+      document.getElementById('active-lang-text').textContent = l === 'ta' ? 'தமிழ்' : 'English';
+    }
+  </script>
+
+</body>
+</html>
